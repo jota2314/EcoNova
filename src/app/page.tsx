@@ -1,10 +1,32 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const animateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
+    animateElements.forEach(el => observer.observe(el));
+
+    return () => {
+      animateElements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-800 via-teal-900 to-slate-900">
@@ -192,7 +214,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="py-32 px-4 text-center">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
             Save Up to 40% on Energy Bills with
           </h1>
@@ -267,8 +289,8 @@ export default function Home() {
 
       {/* Insulation Services Section */}
       <section id="insulation" className="py-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl font-bold text-white mb-4">
               Professional Insulation Services
             </h2>
@@ -277,7 +299,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 scroll-animate">
             <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-500/20 hover:border-green-400/40 hover:scale-105 transform group">
               <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110 transform">
                 <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -370,8 +392,8 @@ export default function Home() {
       
       {/* Energy Services Section */}
       <section id="services" className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl font-bold text-white mb-4">
               Complete Energy Solutions
             </h2>
@@ -483,7 +505,7 @@ export default function Home() {
       {/* Energy Assessment Section */}
       <section id="energy-assessment" className="py-20 bg-green-600">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center scroll-animate">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
                 No Cost Home Energy Assessment
@@ -552,8 +574,8 @@ export default function Home() {
       
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl font-bold text-white mb-4">
               What Our Customers Say
             </h2>
@@ -562,7 +584,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-8 mb-16 scroll-animate">
             <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -652,9 +674,15 @@ export default function Home() {
       </section>
       
       {/* Financing Section */}
-      <section id="financing" className="py-20 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+      <section id="financing" className="py-20 bg-gradient-to-bl from-slate-700 via-gray-800 to-slate-800 relative overflow-hidden">
+        {/* Money/financial themed background */}
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute top-20 left-1/4 w-28 h-28 bg-green-400/20 rounded-full animate-ping" style={{animationDuration: '3s'}}></div>
+          <div className="absolute bottom-20 right-1/4 w-36 h-36 bg-emerald-500/20 rounded-full animate-ping" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl font-bold text-white mb-4">
               Flexible Financing & Maximum Rebates
             </h2>
@@ -790,7 +818,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
