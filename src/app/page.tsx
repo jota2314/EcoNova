@@ -174,13 +174,13 @@ export default function Home() {
       </section>
 
       {/* Insulation Services Section */}
-      <section id="insulation" className="py-20 bg-gray-50">
+      <section id="insulation" className="py-20 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-white mb-4">
               Professional Insulation Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Certified installers • Guaranteed results • Up to 80% utility rebates • No upfront costs
             </p>
           </div>
@@ -277,13 +277,13 @@ export default function Home() {
       </section>
       
       {/* Energy Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-white mb-4">
               Complete Energy Solutions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               From insulation to solar, we handle all your home energy needs
             </p>
           </div>
