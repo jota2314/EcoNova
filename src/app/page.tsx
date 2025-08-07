@@ -33,11 +33,11 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-green-500/20 shadow-lg shadow-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-24">
             <div className="flex items-center group">
               <div className="relative">
-                <div className="absolute inset-0 bg-green-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <Image src="/Untitled design (26).png" alt="Econova Logo" width={80} height={80} className="h-16 w-auto hover:scale-110 transition-all duration-500 relative z-10"/>
+                <div className="absolute inset-0 bg-green-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-125"></div>
+                <Image src="/Untitled design (26).png" alt="Econova Logo" width={120} height={120} className="h-20 w-auto hover:scale-110 transition-all duration-500 relative z-10"/>
               </div>
             </div>
             
