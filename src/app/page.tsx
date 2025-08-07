@@ -139,31 +139,44 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Google Reviews */}
-          <div className="mb-12">
-            <div className="text-white text-lg mb-2">Google</div>
-            <div className="flex justify-center items-center mb-2">
-              {[...Array(5)].map((_, i) => (
-                <svg key={i} className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                </svg>
-              ))}
+          {/* Mass Save Focus */}
+          <div className="bg-green-600/20 border border-green-500/30 rounded-xl p-8 mb-12 backdrop-blur-sm">
+            <div className="flex items-center justify-center mb-4">
+              <svg className="w-8 h-8 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+              </svg>
+              <h3 className="text-2xl font-bold text-green-400">Mass Save® Partner</h3>
             </div>
-            <div className="text-gray-300">2,847 5-Star Reviews</div>
+            <p className="text-white text-center text-lg mb-6">
+              Get up to <span className="text-green-400 font-bold text-xl">80% rebates</span> on insulation through Massachusetts utility programs
+            </p>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-400 mb-1">FREE</div>
+                <div className="text-sm text-gray-300">Energy Assessment</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-400 mb-1">$0</div>
+                <div className="text-sm text-gray-300">Out of Pocket</div>
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
-              <span className="relative z-10 flex items-center space-x-2">
+            <button className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
+              <span className="relative z-10 flex items-center space-x-3">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>Get FREE Assessment</span>
+                <span>Schedule FREE Assessment</span>
               </span>
             </button>
-            <button className="relative overflow-hidden border-2 border-white/80 text-white px-10 py-4 rounded-2xl text-lg font-semibold transition-all duration-500 hover:bg-white hover:text-slate-900 hover:border-white hover:shadow-2xl hover:shadow-white/20 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group">
+            <button className="relative overflow-hidden border-2 border-green-400/80 text-green-400 px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group">
               <span className="flex items-center justify-center gap-3">
-                <span>Check Rebate Eligibility</span>
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                </svg>
+                <span>Check Mass Save® Rebates</span>
                 <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
