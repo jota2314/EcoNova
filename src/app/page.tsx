@@ -31,79 +31,81 @@ export default function Home() {
       </div>
       
       {/* Navigation */}
-      <nav className="bg-black/20 backdrop-blur-lg border-b border-white/10">
+      <nav className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-green-500/20 shadow-lg shadow-black/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
-            <div className="flex items-center">
-              <Image src="/Untitled design (26).png" alt="Econova Logo" width={128} height={128} className="h-32 w-auto hover:scale-105 transition-transform duration-300"/>
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center group">
+              <div className="relative">
+                <div className="absolute inset-0 bg-green-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Image src="/Untitled design (26).png" alt="Econova Logo" width={80} height={80} className="h-16 w-auto hover:scale-110 transition-all duration-500 relative z-10"/>
+              </div>
             </div>
-            <div className="hidden md:flex space-x-10">
+            
+            <div className="hidden md:flex space-x-8">
               {/* Learn More About Mass Save Dropdown */}
               <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-lg relative flex items-center space-x-1">
-                  <span>Learn More About Mass Save</span>
+                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
+                  <span>Mass Save</span>
                   <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-3">
-                    <Link href="#rebates" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Rebates & Incentives</Link>
-                    <Link href="#eligibility" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Eligibility Requirements</Link>
-                    <Link href="#process" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Application Process</Link>
-                    <Link href="#savings" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Energy Savings</Link>
+                <div className="absolute top-full left-0 mt-3 w-64 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="py-4">
+                    <Link href="#rebates" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Rebates & Incentives</Link>
+                    <Link href="#eligibility" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Eligibility Requirements</Link>
+                    <Link href="#process" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Application Process</Link>
+                    <Link href="#savings" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Savings</Link>
                   </div>
                 </div>
               </div>
               
               {/* Services Dropdown */}
               <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-lg relative flex items-center space-x-1">
+                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
                   <span>Services</span>
                   <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-3">
-                    <Link href="#attic-insulation" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Attic Insulation</Link>
-                    <Link href="#wall-insulation" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Wall Insulation</Link>
-                    <Link href="#basement-insulation" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Basement Insulation</Link>
-                    <Link href="#air-sealing" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Air Sealing</Link>
-                    <Link href="#energy-audit" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Energy Audits</Link>
+                <div className="absolute top-full left-0 mt-3 w-56 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="py-4">
+                    <Link href="#attic-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Attic Insulation</Link>
+                    <Link href="#wall-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Wall Insulation</Link>
+                    <Link href="#basement-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Basement Insulation</Link>
+                    <Link href="#air-sealing" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Air Sealing</Link>
+                    <Link href="#energy-audit" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Audits</Link>
                   </div>
                 </div>
               </div>
               
               {/* About Us Dropdown */}
               <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-lg relative flex items-center space-x-1">
+                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
                   <span>About Us</span>
                   <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/20 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-3">
-                    <Link href="#our-story" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Our Story</Link>
-                    <Link href="#team" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Our Team</Link>
-                    <Link href="#certifications" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Certifications</Link>
-                    <Link href="#testimonials" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Testimonials</Link>
-                    <Link href="#contact" className="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition-colors duration-200">Contact Us</Link>
+                <div className="absolute top-full left-0 mt-3 w-48 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <div className="py-4">
+                    <Link href="#our-story" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Our Story</Link>
+                    <Link href="#team" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Our Team</Link>
+                    <Link href="#certifications" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Certifications</Link>
+                    <Link href="#testimonials" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Testimonials</Link>
+                    <Link href="#contact" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Contact Us</Link>
                   </div>
                 </div>
               </div>
             </div>
+            
             <div className="flex items-center">
-              <button className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-green-600 to-green-700 text-white px-8 py-1 rounded-2xl font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/10 before:translate-y-[100%] hover:before:translate-y-[0%] before:transition-transform before:duration-300 group">
+              <button className="relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
                 <span className="relative z-10 flex items-center space-x-2">
-                  <span>Call Now</span>
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                   </svg>
+                  <span>Call Now</span>
                 </span>
               </button>
             </div>
