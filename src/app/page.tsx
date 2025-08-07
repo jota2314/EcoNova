@@ -186,50 +186,50 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-500/20 hover:border-green-400/40 hover:scale-105 transform group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110 transform">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.75 2.524 9.026 9.026 0 01-1 .8z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-900">Attic Insulation</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-bold mb-2 text-white group-hover:text-green-400 transition-colors duration-300">Attic Insulation</h3>
+              <p className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors duration-300">
                 Blown-in cellulose and fiberglass for maximum R-value
               </p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-500/20 hover:border-green-400/40 hover:scale-105 transform group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110 transform">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-900">Wall Insulation</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-bold mb-2 text-white group-hover:text-green-400 transition-colors duration-300">Wall Insulation</h3>
+              <p className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors duration-300">
                 Injection foam and dense-pack for existing walls
               </p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-500/20 hover:border-green-400/40 hover:scale-105 transform group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110 transform">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-900">Basement Insulation</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-bold mb-2 text-white group-hover:text-green-400 transition-colors duration-300">Basement Insulation</h3>
+              <p className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors duration-300">
                 Spray foam and rigid board for foundation walls
               </p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-500/20 hover:border-green-400/40 hover:scale-105 transform group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-110 transform">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M9.243 3.03a1 1 0 01.727 1.213L9.53 6h2.94l.56-2.243a1 1 0 111.94.486L14.53 6H17a1 1 0 110 2h-2.97l-1 4H15a1 1 0 110 2h-2.47l-.56 2.242a1 1 0 11-1.94-.485L10.47 14H7.53l-.56 2.242a1 1 0 11-1.94-.485L5.47 14H3a1 1 0 110-2h2.97l1-4H5a1 1 0 110-2h2.47l.56-2.243a1 1 0 011.213-.727zM9.03 8l-1 4h2.94l1-4H9.03z"/>
                 </svg>
               </div>
-              <h3 className="text-lg font-bold mb-2 text-gray-900">Air Sealing</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="text-lg font-bold mb-2 text-white group-hover:text-green-400 transition-colors duration-300">Air Sealing</h3>
+              <p className="text-gray-300 text-sm group-hover:text-gray-100 transition-colors duration-300">
                 Complete thermal envelope sealing for maximum efficiency
               </p>
             </div>
@@ -289,17 +289,17 @@ export default function Home() {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 group">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:bg-green-600 transition-colors">
-                <svg className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">Solar Installation</h3>
-              <p className="text-gray-600 mb-6 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">Solar Installation</h3>
+              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
                 Premium solar panels with 25-year performance guarantee and net metering.
               </p>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
                 <li className="flex items-center">
                   <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -321,17 +321,17 @@ export default function Home() {
               </ul>
             </div>
             
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 group">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:bg-green-600 transition-colors">
-                <svg className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">Battery Storage</h3>
-              <p className="text-gray-600 mb-6 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">Battery Storage</h3>
+              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
                 Backup power systems with smart energy management and grid independence.
               </p>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
                 <li className="flex items-center">
                   <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
@@ -353,17 +353,17 @@ export default function Home() {
               </ul>
             </div>
             
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100 group">
-              <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:bg-green-600 transition-colors">
-                <svg className="w-8 h-8 text-green-600 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
+                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">HVAC Efficiency</h3>
-              <p className="text-gray-600 mb-6 text-center">
+              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">HVAC Efficiency</h3>
+              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
                 High-efficiency heating and cooling systems with smart thermostats.
               </p>
-              <ul className="space-y-3 text-sm text-gray-600">
+              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
                 <li className="flex items-center">
                   <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
