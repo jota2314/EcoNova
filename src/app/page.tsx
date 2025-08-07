@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -34,7 +35,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <div className="flex items-center">
-              <img src="/Untitled design (26).png" alt="Econova Logo" className="h-32 w-auto hover:scale-105 transition-transform duration-300"/>
+              <Image src="/Untitled design (26).png" alt="Econova Logo" width={128} height={128} className="h-32 w-auto hover:scale-105 transition-transform duration-300"/>
             </div>
             <div className="hidden md:flex space-x-10">
               {/* Learn More About Mass Save Dropdown */}
@@ -479,7 +480,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-4 italic">
-                "My energy bills went from $340/month to $180/month after Econova insulated my attic and walls. The rebates covered 75% of the cost - incredible value!"
+                &ldquo;My energy bills went from $340/month to $180/month after Econova insulated my attic and walls. The rebates covered 75% of the cost - incredible value!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
@@ -501,7 +502,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-4 italic">
-                "Professional installation, no upfront costs, and my house stays comfortable year-round now. The whole process was seamless and the team was fantastic."
+                &ldquo;Professional installation, no upfront costs, and my house stays comfortable year-round now. The whole process was seamless and the team was fantastic.&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
@@ -523,7 +524,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-300 mb-4 italic">
-                "The energy audit found air leaks I never knew existed. After sealing and insulation, we're saving $200+ monthly. ROI was achieved in under 2 years!"
+                &ldquo;The energy audit found air leaks I never knew existed. After sealing and insulation, we&rsquo;re saving $200+ monthly. ROI was achieved in under 2 years!&rdquo;
               </p>
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">
@@ -701,7 +702,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center mb-4">
-                <img src="/Untitled design (26).png" alt="Econova Logo" className="h-8 w-auto mr-3"/>
+                <Image src="/Untitled design (26).png" alt="Econova Logo" width={32} height={32} className="h-8 w-auto mr-3"/>
                 <h3 className="text-2xl font-bold text-green-400">Econova</h3>
               </div>
               <p className="text-gray-400 mb-6 max-w-md">
