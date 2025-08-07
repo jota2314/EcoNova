@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Professional Home Insulation & Energy Services | Econova | Save Up to 40% on Energy Bills",
-  description: "Get FREE home energy assessment & professional insulation installation with up to 80% utility rebates. Certified installers, guaranteed 30% savings, $0 down payment. Serving homeowners nationwide with attic, wall, basement insulation, air sealing, solar & HVAC efficiency solutions.",
+  description: "Get No Cost home energy assessment & professional insulation installation with up to 80% utility rebates. Certified installers, guaranteed 30% savings, $0 down payment. Serving homeowners nationwide with attic, wall, basement insulation, air sealing, solar & HVAC efficiency solutions.",
   keywords: "home insulation, attic insulation, wall insulation, basement insulation, air sealing, energy audit, utility rebates, mass save, energy efficiency, home energy assessment, insulation contractors, blown-in insulation, spray foam, energy savings, HVAC efficiency, solar installation, energy storage",
   openGraph: {
-    title: "Professional Home Insulation Services | FREE Assessment & Up to 80% Rebates",
-    description: "Save up to 40% on energy bills with professional insulation. FREE energy audit, certified installers, guaranteed results, $0 down payment options.",
+    title: "Professional Home Insulation Services | No Cost Assessment & Up to 80% Rebates",
+    description: "Save up to 40% on energy bills with professional insulation. No Cost energy audit, certified installers, guaranteed results, $0 down payment options.",
     type: "website",
     siteName: "Econova",
     locale: "en_US",

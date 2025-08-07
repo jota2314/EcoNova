@@ -26,8 +26,8 @@ export default function Home() {
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="hidden sm:inline">Schedule Free Assessment</span>
-                  <span className="sm:hidden">Free Assessment</span>
+                  <span className="hidden sm:inline">Schedule No Cost Assessment</span>
+                  <span className="sm:hidden">No Cost Assessment</span>
                 </span>
               </button>
             </div>
@@ -200,7 +200,7 @@ export default function Home() {
             Professional Home Insulation
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-            Get <span className="text-green-400 font-semibold">FREE home energy assessment</span> and professional installation with up to <span className="text-green-400 font-semibold">80% rebates</span> from utility programs. Start saving immediately with guaranteed results.
+            Get <span className="text-green-400 font-semibold">No Cost home energy assessment</span> and professional installation with up to <span className="text-green-400 font-semibold">80% rebates</span> from utility programs. Start saving immediately with guaranteed results.
           </p>
           
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mb-12 text-center">
@@ -231,7 +231,7 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-400 mb-1">FREE</div>
+                <div className="text-2xl font-bold text-green-400 mb-1">No Cost</div>
                 <div className="text-sm text-gray-300">Energy Assessment</div>
               </div>
               <div className="text-center">
@@ -247,7 +247,7 @@ export default function Home() {
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>Schedule FREE Assessment</span>
+                <span>Schedule No Cost Assessment</span>
               </span>
             </button>
             <button className="relative overflow-hidden border-2 border-green-400/80 text-green-400 px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group">
@@ -486,7 +486,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
-                FREE Home Energy Assessment
+                No Cost Home Energy Assessment
               </h2>
               <p className="text-xl text-green-100 mb-8">
                 Our certified energy auditors will identify exactly where your home is losing energy and money. Get a detailed report with guaranteed savings projections.
@@ -520,7 +520,7 @@ export default function Home() {
               </div>
               
               <button className="bg-white text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                Schedule Your FREE Assessment
+                Schedule Your No Cost Assessment
               </button>
             </div>
             
@@ -542,7 +542,7 @@ export default function Home() {
                   <option value="vintage" className="text-gray-900">Over 30 years</option>
                 </select>
                 <button type="submit" className="w-full bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                  Get My FREE Assessment
+                  Get My No Cost Assessment
                 </button>
               </form>
             </div>
@@ -635,7 +635,7 @@ export default function Home() {
               Ready to Join Thousands of Satisfied Customers?
             </h3>
             <p className="text-green-100 mb-6">
-              Get your FREE energy assessment and custom savings plan today
+              Get your No Cost energy assessment and custom savings plan today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
@@ -763,7 +763,7 @@ export default function Home() {
                 Calculate My Savings
               </button>
               <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors">
-                Schedule Free Assessment
+                Schedule No Cost Assessment
               </button>
             </div>
           </div>
@@ -775,7 +775,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Saving?</h2>
           <p className="text-xl mb-8 text-gray-300">
-            Get a free consultation and assessment from our certified energy experts today.
+            Get a no cost consultation and assessment from our certified energy experts today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg">
