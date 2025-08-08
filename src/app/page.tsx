@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-800 via-teal-900 to-slate-900">
       {/* Sub Navigation */}
-      <div className="bg-slate-900/90 backdrop-blur-sm shadow-lg border-b border-slate-700/50">
+      <div className="bg-slate-900/90 backdrop-blur-sm shadow-lg border-b border-slate-700/50 relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-12">
             <div className="flex items-center space-x-6">
@@ -58,7 +58,7 @@ export default function Home() {
       </div>
       
       {/* Navigation */}
-      <nav className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-green-500/20 shadow-lg shadow-black/20">
+      <nav className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-green-500/20 shadow-lg shadow-black/20 relative z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-32">
             <div className="flex items-center group">
@@ -142,14 +142,14 @@ export default function Home() {
               </button>
               
               {/* Desktop CTA Button */}
-              <button className="hidden md:block relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
+              <a href="tel:+16175962476" className="hidden md:block relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
                 <span className="relative z-10 flex items-center space-x-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                   </svg>
                   <span>Call Now</span>
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -214,7 +214,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="py-32 px-4 text-center">
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-5xl mx-auto relative">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
             Save Up to 40% on Energy Bills with
           </h1>
@@ -264,15 +264,15 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
+            <a href="#contact" className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
               <span className="relative z-10 flex items-center space-x-3">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 <span>Schedule No Cost Assessment</span>
               </span>
-            </button>
-            <button className="relative overflow-hidden border-2 border-green-400/80 text-green-400 px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group">
+            </a>
+            <a href="#services" className="relative overflow-hidden border-2 border-green-400/80 text-green-400 px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group">
               <span className="flex items-center justify-center gap-3">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
@@ -282,7 +282,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -22,6 +22,15 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Econova",
     locale: "en_US",
+    url: "https://econovaenergysaving.com",
+    images: [
+      {
+        url: "https://econovaenergysaving.com/Untitled%20design%20(26).png",
+        width: 1200,
+        height: 630,
+        alt: "Econova - Professional Home Insulation"
+      }
+    ],
   },
   robots: {
     index: true,
@@ -36,6 +45,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'your-google-verification-code',
+  },
+  alternates: {
+    canonical: 'https://econovaenergysaving.com',
   },
 };
 
@@ -57,8 +69,8 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               "name": "Econova",
               "description": "Professional home insulation and energy efficiency services",
-              "url": "https://econova.com",
-              "telephone": "833-363-7442",
+              "url": "https://econovaenergysaving.com",
+              "telephone": "(617) 596-2476",
               "serviceArea": {
                 "@type": "Country",
                 "name": "United States"

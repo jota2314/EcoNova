@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://econova-insulation.com/sitemap.xml',
+    sitemap: 'https://econovaenergysaving.com/sitemap.xml',
   }
 }
