@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { CITIES } from "@/lib/site";
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -97,11 +98,13 @@ export default function Home() {
                 </button>
                 <div className="absolute top-full left-0 mt-3 w-56 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                   <div className="py-4">
-                    <Link href="#attic-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Attic Insulation</Link>
-                    <Link href="#wall-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Wall Insulation</Link>
-                    <Link href="#basement-insulation" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Basement Insulation</Link>
-                    <Link href="#air-sealing" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Air Sealing</Link>
-                    <Link href="#energy-audit" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Audits</Link>
+                    <Link href="/attic-insulation/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Attic Insulation</Link>
+                    <Link href="/wall-insulation-dense-pack/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Wall Insulation</Link>
+                    <Link href="/basement-insulation/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Basement Insulation</Link>
+                    <Link href="/air-sealing/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Air Sealing</Link>
+                    <Link href="/energy-assessment/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Assessment</Link>
+                    <Link href="/hvac/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">HVAC Heat Pumps</Link>
+                    <Link href="/mass-save/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Mass Save® Rebates</Link>
                   </div>
                 </div>
               </div>
@@ -188,11 +191,13 @@ export default function Home() {
               <div className="border-b border-slate-700 pb-3 mb-3">
                 <div className="text-green-400 font-semibold text-lg mb-2">Services</div>
                 <div className="space-y-1 pl-4">
-                  <Link href="#attic-insulation" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Attic Insulation</Link>
-                  <Link href="#wall-insulation" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Wall Insulation</Link>
-                  <Link href="#basement-insulation" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Basement Insulation</Link>
-                  <Link href="#air-sealing" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Air Sealing</Link>
-                  <Link href="#energy-audit" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Energy Audits</Link>
+                  <Link href="/attic-insulation/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Attic Insulation</Link>
+                  <Link href="/wall-insulation-dense-pack/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Wall Insulation</Link>
+                  <Link href="/basement-insulation/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Basement Insulation</Link>
+                  <Link href="/air-sealing/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Air Sealing</Link>
+                  <Link href="/energy-assessment/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Energy Assessment</Link>
+                  <Link href="/hvac/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>HVAC Heat Pumps</Link>
+                  <Link href="/mass-save/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Mass Save® Rebates</Link>
                 </div>
               </div>
               
@@ -824,70 +829,109 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
+      <footer className="bg-gradient-to-b from-slate-900 to-gray-950 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center mb-4">
-                <Image src="/Untitled design (26).png" alt="Econova Logo" width={32} height={32} className="h-8 w-auto mr-3"/>
-                <h3 className="text-2xl font-bold text-green-400">Econova</h3>
-              </div>
-              <p className="text-gray-400 mb-6 max-w-md">
-                Professional home insulation and energy efficiency solutions. Save money, increase comfort, and help the environment with our certified installation services.
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          <div className="grid md:grid-cols-4 gap-12">
+            {/* Logo Section */}
+            <div className="flex flex-col items-start">
+              <Link href="/" className="mb-8">
+                <Image 
+                  src="/Untitled design (26).png" 
+                  alt="Econova Logo" 
+                  width={180} 
+                  height={180} 
+                  className="h-36 w-auto hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
+              <div className="space-y-4">
+                <Link 
+                  href="/energy-assessment/" 
+                  className="inline-block bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-0.5"
+                >
+                  Schedule Assessment
+                </Link>
+                <div className="text-gray-400">
+                  <div className="flex items-center mb-2">
+                    <svg className="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
-                  ))}
+                    <a href="tel:8333637442" className="hover:text-green-400 transition-colors">(833) 363-7442</a>
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                    </svg>
+                    <a href="mailto:info@econova.com" className="hover:text-green-400 transition-colors">info@econova.com</a>
+                  </div>
                 </div>
-                <span className="text-gray-400">4.9/5 from 2,847 reviews</span>
               </div>
             </div>
+
+            {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Services</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li className="hover:text-green-400 transition-colors cursor-pointer">Attic Insulation</li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer">Wall Insulation</li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer">Air Sealing</li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer">Solar Installation</li>
-                <li className="hover:text-green-400 transition-colors cursor-pointer">Energy Audits</li>
+              <h4 className="text-xl font-bold mb-6 text-white">Our Services</h4>
+              <ul className="space-y-3">
+                <li><Link href="/attic-insulation/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Attic Insulation</Link></li>
+                <li><Link href="/wall-insulation-dense-pack/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Wall Insulation</Link></li>
+                <li><Link href="/basement-insulation/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Basement Insulation</Link></li>
+                <li><Link href="/air-sealing/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Air Sealing</Link></li>
+                <li><Link href="/hvac/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">HVAC Heat Pumps</Link></li>
+                <li><Link href="/energy-assessment/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Energy Assessment</Link></li>
+                <li><Link href="/mass-save/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Mass Save® Rebates</Link></li>
               </ul>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                  </svg>
-                  833 363 7442
+
+            {/* Areas We Serve - 2 Columns */}
+            <div className="md:col-span-2">
+              <h4 className="text-xl font-bold mb-6 text-white">Areas We Serve in Massachusetts</h4>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                <div>
+                  {CITIES.slice(0, Math.ceil(CITIES.length / 2)).map(city => (
+                    <div key={city.slug} className="mb-2">
+                      <Link 
+                        href={`/${city.slug}/`} 
+                        className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm"
+                      >
+                        {city.city}, {city.state}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                  </svg>
-                  info@econova.com
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"/>
-                  </svg>
-                  Available 7 days a week
+                <div>
+                  {CITIES.slice(Math.ceil(CITIES.length / 2)).map(city => (
+                    <div key={city.slug} className="mb-2">
+                      <Link 
+                        href={`/${city.slug}/`} 
+                        className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm"
+                      >
+                        {city.city}, {city.state}
+                      </Link>
+                    </div>
+                  ))}
                 </div>
               </div>
+              <Link 
+                href="/service-area/" 
+                className="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors font-medium"
+              >
+                View All Service Areas →
+              </Link>
             </div>
           </div>
-          <div className="border-t border-gray-700 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400">&copy; 2024 Econova. All rights reserved.</p>
-              <div className="flex space-x-6 text-gray-400 text-sm mt-4 md:mt-0">
+
+          {/* Bottom Section */}
+          <div className="border-t border-gray-700 mt-16 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="text-gray-400 text-sm">
+                &copy; 2024 Econova Energy Solutions. All rights reserved. 
+                <span className="mx-2">|</span>
+                Licensed & Insured Energy Contractors
+              </p>
+              <div className="flex space-x-6 text-gray-400 text-sm">
                 <a href="#" className="hover:text-green-400 transition-colors">Privacy Policy</a>
                 <a href="#" className="hover:text-green-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-green-400 transition-colors">Cookie Policy</a>
+                <a href="#" className="hover:text-green-400 transition-colors">Sitemap</a>
               </div>
             </div>
           </div>
