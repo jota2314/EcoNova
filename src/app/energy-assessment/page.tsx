@@ -74,7 +74,7 @@ export default function Page() {
         <ul>
           <li>Single-family homes and condos (some townhomes qualify)</li>
           <li>Customers of participating Massachusetts utilities</li>
-          <li>Properties that haven't received recent energy upgrades</li>
+          <li>Properties that haven&apos;t received recent energy upgrades</li>
           <li>Owner-occupied or rental properties (with owner permission)</li>
         </ul>
         <p className="mt-3 text-sm opacity-80">
