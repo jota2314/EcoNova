@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.econovaenergysaving.com
+
+# Sitemaps
+Sitemap: https://www.econovaenergysaving.com/sitemap.xml
