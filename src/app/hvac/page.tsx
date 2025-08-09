@@ -38,7 +38,7 @@ export default function Page() {
 
       <Section title="Cold-Climate Performance">
         <p>
-          Today's cold-climate heat pumps are specifically designed for Massachusetts weather conditions
+          Today&apos;s cold-climate heat pumps are specifically designed for Massachusetts weather conditions
           and maintain high efficiency even in sub-zero temperatures.
         </p>
         <ul className="mt-3">

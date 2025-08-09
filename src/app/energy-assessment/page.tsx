@@ -13,7 +13,7 @@ export default function Page() {
       <Section title="Why Get an Energy Assessment?">
         <p>
           Our comprehensive assessment identifies exactly where your home loses energy and money.
-          You'll receive a detailed report with prioritized recommendations and guaranteed savings projections.
+          You&apos;ll receive a detailed report with prioritized recommendations and guaranteed savings projections.
         </p>
         <ul className="mt-3">
           <li>Pinpoint air leaks and insulation gaps</li>
@@ -66,7 +66,7 @@ export default function Page() {
           <li>Plan to be home for the entire assessment</li>
         </ul>
         <p className="mt-3 text-sm opacity-80">
-          We'll provide shoe covers and work respectfully in your home.
+          We&apos;ll provide shoe covers and work respectfully in your home.
         </p>
       </Section>
 
@@ -93,15 +93,15 @@ export default function Page() {
 
       <Section title="FAQs">
         <p><strong>How much does the assessment cost?</strong> $0 for eligible customers through Mass Save® programs.</p>
-        <p><strong>Are you trying to sell me something?</strong> We provide honest recommendations. There's no pressure to proceed with any work.</p>
+        <p><strong>Are you trying to sell me something?</strong> We provide honest recommendations. There&apos;s no pressure to proceed with any work.</p>
         <p><strong>How soon can I get an assessment?</strong> Most assessments can be scheduled within 1-2 weeks.</p>
-        <p><strong>What if I'm not eligible for rebates?</strong> We still provide the full assessment and can discuss other financing options.</p>
+        <p><strong>What if I&apos;m not eligible for rebates?</strong> We still provide the full assessment and can discuss other financing options.</p>
       </Section>
 
       <Section title="Ready to Schedule?">
         <p>
           Call <strong>(833) 363-7442</strong> or use our online scheduling system to book your no-cost assessment.
-          We'll confirm your eligibility and answer any questions before your visit.
+          We&apos;ll confirm your eligibility and answer any questions before your visit.
         </p>
       </Section>
     </ServicePage>

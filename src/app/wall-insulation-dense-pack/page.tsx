@@ -42,7 +42,7 @@ export default function Page() {
       <Section title="Installation Process">
         <ul>
           <li>Site preparation and protection of work areas</li>
-          <li>Strategic hole placement (typically every 16" on center)</li>
+          <li>Strategic hole placement (typically every 16&quot; on center)</li>
           <li>Dense-pack installation with density verification</li>
           <li>Hole patching with matching materials</li>
           <li>Cleanup and final walkthrough</li>

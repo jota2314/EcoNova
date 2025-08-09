@@ -59,7 +59,7 @@ export default function Page() {
 
       <Section title="Blower Door Testing">
         <p>
-          We use calibrated blower-door equipment to measure your home's air leakage before and after work.
+          We use calibrated blower-door equipment to measure your home&apos;s air leakage before and after work.
           This scientific approach ensures maximum efficiency and program compliance.
         </p>
         <ul className="mt-3">
