@@ -1,10 +1,12 @@
-export const SITE = {
+import type { SiteConfig, ServiceLink, City } from '@/types';
+
+export const SITE: SiteConfig = {
   name: 'Econova',
   baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.econova.com',
-  phone: '(833) 363-7442',
+  phone: '(617) 596-2476',
 };
 
-export const SERVICE_LINKS = [
+export const SERVICE_LINKS: ServiceLink[] = [
   { slug: '/attic-insulation/', label: 'Attic Insulation' },
   { slug: '/air-sealing/', label: 'Air Sealing' },
   { slug: '/wall-insulation-dense-pack/', label: 'Wall Insulation (Dense-Pack)' },
@@ -13,8 +15,6 @@ export const SERVICE_LINKS = [
   { slug: '/energy-assessment/', label: 'No-Cost Energy Assessment' },
   { slug: '/mass-save/', label: 'Mass Save® Rebates' },
 ];
-
-export type City = { slug: string; city: string; state: string; county?: string };
 
 export const CITIES: City[] = [
   { slug: 'wilmington-ma', city: 'Wilmington', state: 'MA' },

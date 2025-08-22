@@ -1,0 +1,85 @@
+/* Reusable component classes */
+@layer components {
+  /* Button variations */
+  .btn-primary {
+    @apply bg-gradient-to-r from-emerald-600 to-green-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-emerald-600 border-2 border-emerald-600 px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-emerald-600 hover:text-white hover:shadow-xl transform hover:-translate-y-1;
+  }
+
+  .btn-outline {
+    @apply border-2 border-white text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:bg-white hover:text-emerald-600 hover:shadow-xl transform hover:-translate-y-1;
+  }
+
+  /* Card variations */
+  .card-base {
+    @apply bg-white/90 backdrop-blur-sm rounded-3xl border border-gray-200/50 shadow-lg;
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-2 transition-all duration-500;
+  }
+
+  .card-service {
+    @apply card-base card-hover group relative;
+  }
+
+  /* Background patterns */
+  .bg-hero {
+    @apply bg-gradient-to-br from-emerald-50/80 via-blue-50/60 to-green-50/80;
+  }
+
+  .bg-section {
+    @apply bg-gradient-to-br from-white via-emerald-50/30 to-green-50/50;
+  }
+
+  .bg-cta {
+    @apply bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700;
+  }
+
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent;
+  }
+
+  /* Animation classes */
+  .scroll-animate {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .scroll-animate.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .scroll-animate-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700;
+  }
+
+  .scroll-animate-left.visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  .scroll-animate-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700;
+  }
+
+  .scroll-animate-right.visible {
+    @apply opacity-100 translate-x-0;
+  }
+
+  /* Trust indicators */
+  .trust-badge {
+    @apply inline-flex items-center bg-white/20 backdrop-blur-sm text-emerald-100 px-4 py-2 rounded-full text-sm font-medium;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-colors;
+  }
+
+  .form-select {
+    @apply px-4 py-3 rounded-xl bg-white border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 transition-colors;
+  }
+}
