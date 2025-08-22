@@ -65,7 +65,7 @@ export const translations = {
     watchCertifiedProfessionals: 'Watch our certified professionals perform comprehensive energy assessments and installations',
     bpiCertified: 'BPI Certified',
     documentedResults: 'Documented Results',
-    noCostAssessment: 'No Cost Assessment',
+    noCostAssessmentHero: 'No Cost Assessment',
     transform: 'Transform',
     
     // Additional Hero Content
@@ -74,7 +74,7 @@ export const translations = {
     // Services Section
     servicesIn: 'Services in',
     professionalInsulation: 'Professional Insulation Services',
-    professional: 'Professional',
+    professionalServices: 'Professional',
     insulation: 'Insulation',
     certifiedInstallers: 'Certified installers',
     guaranteedResults: 'Guaranteed results',
@@ -93,6 +93,7 @@ export const translations = {
     airSealingDescription: 'Complete thermal envelope sealing for maximum efficiency',
     popularIn: 'Popular in',
     popular: 'Popular',
+    professional: 'Professional',
     foundation: 'Foundation',
     complete: 'Complete',
     professionalInstall: 'Professional install',
@@ -116,6 +117,7 @@ export const translations = {
     
     // Energy Assessment
     noCostHomeAssessment: 'No Cost Home Energy Assessment',
+    noCostAssessment: 'No Cost Energy Assessment',
     assessmentDescription: 'Our certified energy auditors will identify exactly where your home is losing energy and money. Get a detailed report with guaranteed savings projections.',
     homeIsLosing: 'home is losing energy and money. Get a detailed report with guaranteed savings projections.',
     blowerDoorTesting: 'Blower door air leakage testing',
@@ -160,7 +162,6 @@ export const translations = {
     getNoCostAssessment: 'Get your No Cost energy assessment and custom savings plan for your',
     homeToday: 'home today',
     enterZipCode: 'Enter ZIP Code',
-    zipCode: 'ZIP Code',
     getStarted: 'Get Started',
     
     // Complete Energy Solutions
@@ -301,14 +302,14 @@ export const translations = {
     watchCertifiedProfessionals: 'Ve a nuestros profesionales certificados realizar evaluaciones energéticas integrales e instalaciones',
     bpiCertified: 'Certificado BPI',
     documentedResults: 'Resultados Documentados',
-    noCostAssessment: 'Evaluación Sin Costo',
+    noCostAssessmentHero: 'Evaluación Sin Costo',
     transform: 'Transformamos',
     homeEnergyAssessmentProcess: 'Proceso de Evaluación Energética del Hogar',
     
     // Services Section
     servicesIn: 'Servicios en',
     professionalInsulation: 'Servicios Profesionales de Aislamiento',
-    professional: 'Profesionales',
+    professionalServices: 'Profesionales',
     insulation: 'Aislamiento',
     certifiedInstallers: 'Instaladores certificados',
     guaranteedResults: 'Resultados garantizados',
@@ -529,14 +530,14 @@ export const translations = {
     watchCertifiedProfessionals: 'Assista nossos profissionais certificados realizarem avaliações energéticas abrangentes e instalações',
     bpiCertified: 'Certificado BPI',
     documentedResults: 'Resultados Documentados',
-    noCostAssessment: 'Avaliação Sem Custo',
+    noCostAssessmentHero: 'Avaliação Sem Custo',
     transform: 'Transformamos',
     homeEnergyAssessmentProcess: 'Processo de Avaliação Energética Residencial',
     
     // Services Section
     servicesIn: 'Serviços em',
     professionalInsulation: 'Serviços Profissionais de Isolamento',
-    professional: 'Profissionais',
+    professionalServices: 'Profissionais',
     insulation: 'Isolamento',
     certifiedInstallers: 'Instaladores certificados servindo',
     servicesDescription: 'Instaladores certificados • Resultados garantidos • Até 80% reembolsos serviços • Sem custos iniciais',

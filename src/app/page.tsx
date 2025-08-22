@@ -101,7 +101,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                    <span className="text-sm font-medium text-gray-700">{t.noCostAssessment}</span>
+                    <span className="text-sm font-medium text-gray-700">{t.noCostAssessmentHero}</span>
                   </div>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function Home() {
               <span className="text-sm font-semibold text-emerald-700 uppercase tracking-wide">{t.ourServices}</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
-              {t.professional} <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.insulation}</span> {t.services}
+              {t.professionalServices} <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.insulation}</span> {t.services}
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               {t.servicesDescription}
