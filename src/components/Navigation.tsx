@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LANGUAGES } from '@/lib/translations';
-import type { Language } from '@/lib/translations';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
