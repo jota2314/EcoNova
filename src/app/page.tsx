@@ -1,272 +1,123 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { CITIES } from "@/lib/site";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    const animateElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
-    animateElements.forEach(el => observer.observe(el));
-
-    return () => {
-      animateElements.forEach(el => observer.unobserve(el));
-    };
-  }, []);
+  const { t } = useLanguage();
+  useScrollAnimation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-800 via-teal-900 to-slate-900">
-      {/* Sub Navigation */}
-      <div className="bg-slate-900/90 backdrop-blur-sm shadow-lg border-b border-slate-700/50 relative z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-12">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center text-gray-300">
-                <svg className="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                </svg>
-                <span className="text-sm font-medium">(617) 596-2476</span>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <button className="relative overflow-hidden bg-gradient-to-r from-green-600 via-green-500 to-emerald-600 text-white px-4 sm:px-6 py-1 rounded-xl text-xs sm:text-sm font-medium transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 transform hover:-translate-y-0.5 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
-                <span className="relative z-10 flex items-center space-x-1 sm:space-x-2">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="hidden sm:inline">Schedule No Cost Assessment</span>
-                  <span className="sm:hidden">No Cost Assessment</span>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Navigation */}
-      <nav className="bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl border-b border-green-500/20 shadow-lg shadow-black/20 relative z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-32">
-            <div className="flex items-center group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-green-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150"></div>
-                <Image src="/Untitled design (26).png" alt="Econova Logo" width={240} height={240} className="h-40 w-auto hover:scale-110 transition-all duration-500 relative z-10"/>
-              </div>
-            </div>
-            
-            <div className="hidden md:flex space-x-8">
-              {/* Learn More About Mass Save Dropdown */}
-              <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
-                  <span>Mass Save</span>
-                  <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="absolute top-full left-0 mt-3 w-64 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-4">
-                    <Link href="#rebates" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Rebates & Incentives</Link>
-                    <Link href="#eligibility" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Eligibility Requirements</Link>
-                    <Link href="#process" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Application Process</Link>
-                    <Link href="#savings" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Savings</Link>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
-                  <span>Services</span>
-                  <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="absolute top-full left-0 mt-3 w-56 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-4">
-                    <Link href="/attic-insulation/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Attic Insulation</Link>
-                    <Link href="/wall-insulation-dense-pack/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Wall Insulation</Link>
-                    <Link href="/basement-insulation/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Basement Insulation</Link>
-                    <Link href="/air-sealing/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Air Sealing</Link>
-                    <Link href="/energy-assessment/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Energy Assessment</Link>
-                    <Link href="/hvac/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">HVAC Heat Pumps</Link>
-                    <Link href="/mass-save/" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Mass Save® Rebates</Link>
-                  </div>
-                </div>
-              </div>
-              
-              {/* About Us Dropdown */}
-              <div className="relative group">
-                <button className="text-white/90 hover:text-green-400 transition-all duration-300 font-medium text-base relative flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-white/5">
-                  <span>About Us</span>
-                  <svg className="w-4 h-4 transform group-hover:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className="absolute top-full left-0 mt-3 w-48 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-green-500/30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                  <div className="py-4">
-                    <Link href="#our-story" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Our Story</Link>
-                    <Link href="#team" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Our Team</Link>
-                    <Link href="#certifications" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Certifications</Link>
-                    <Link href="#testimonials" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Testimonials</Link>
-                    <Link href="#contact" className="block px-6 py-3 text-gray-300 hover:bg-green-500/20 hover:text-green-400 transition-all duration-200 border-l-2 border-transparent hover:border-green-500">Contact Us</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-4">
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
-              
-              {/* Desktop CTA Button */}
-              <a href="tel:+16175962476" className="hidden md:block relative overflow-hidden bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group">
-                <span className="relative z-10 flex items-center space-x-2">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                  </svg>
-                  <span>Call Now</span>
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        {/* Mobile menu */}
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen 
-            ? 'max-h-screen opacity-100 visible' 
-            : 'max-h-0 opacity-0 invisible'
-        } overflow-hidden`}>
-          <div className="px-4 pb-6 bg-slate-900/98 backdrop-blur-xl border-t border-green-500/20">
-            {/* Mobile CTA Button */}
-            <div className="mb-6 pt-4">
-              <button className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                </svg>
-                <span>(617) 596-2476</span>
-              </button>
-            </div>
-            
-            {/* Mobile menu items */}
-            <div className="space-y-1">
-              {/* Mass Save Section */}
-              <div className="border-b border-slate-700 pb-3 mb-3">
-                <div className="text-green-400 font-semibold text-lg mb-2">Mass Save</div>
-                <div className="space-y-1 pl-4">
-                  <Link href="#rebates" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Rebates & Incentives</Link>
-                  <Link href="#eligibility" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Eligibility Requirements</Link>
-                  <Link href="#process" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Application Process</Link>
-                  <Link href="#savings" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Energy Savings</Link>
-                </div>
-              </div>
-              
-              {/* Services Section */}
-              <div className="border-b border-slate-700 pb-3 mb-3">
-                <div className="text-green-400 font-semibold text-lg mb-2">Services</div>
-                <div className="space-y-1 pl-4">
-                  <Link href="/attic-insulation/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Attic Insulation</Link>
-                  <Link href="/wall-insulation-dense-pack/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Wall Insulation</Link>
-                  <Link href="/basement-insulation/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Basement Insulation</Link>
-                  <Link href="/air-sealing/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Air Sealing</Link>
-                  <Link href="/energy-assessment/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Energy Assessment</Link>
-                  <Link href="/hvac/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>HVAC Heat Pumps</Link>
-                  <Link href="/mass-save/" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Mass Save® Rebates</Link>
-                </div>
-              </div>
-              
-              {/* About Us Section */}
-              <div className="pb-3">
-                <div className="text-green-400 font-semibold text-lg mb-2">About Us</div>
-                <div className="space-y-1 pl-4">
-                  <Link href="#our-story" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Our Story</Link>
-                  <Link href="#team" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Our Team</Link>
-                  <Link href="#certifications" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Certifications</Link>
-                  <Link href="#testimonials" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Testimonials</Link>
-                  <Link href="#contact" className="block py-2 text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-emerald-50 to-green-50">
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-16 pb-24 md:pt-20 md:pb-28 px-4 text-center">
-        <div className="max-w-5xl mx-auto relative">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-2 md:mb-3">
-            Massachusetts Home Insulation & Air Sealing
+      <section className="pt-20 pb-32 md:pt-24 md:pb-40 px-4 text-center relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/80 via-blue-50/60 to-green-50/80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.1),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.08),transparent_50%)]"></div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="inline-flex items-center bg-white/80 backdrop-blur-sm border border-emerald-200/60 rounded-full px-6 py-2 mb-8 shadow-lg">
+            <span className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></span>
+            <span className="text-sm font-medium text-gray-700">Now serving Massachusetts homeowners</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.energyEfficient}</span>
+            <br />{t.homeSolutions}
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed max-w-3xl mx-auto">
-            BPI-certified crews. Utility rebates available through Mass Save® for eligible homes. Improve comfort and reduce energy waste with documented results.
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
+            {t.heroDescription}
           </p>
           
-          <div className="grid grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto mb-8 md:mb-12 text-center">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-green-400 mb-1 md:mb-2">$0</div>
-              <div className="text-sm text-gray-300">Down Payment</div>
+          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mb-8">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
+              <div className="text-3xl md:text-4xl font-black text-emerald-600 mb-2">$0</div>
+              <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.downPayment}</div>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-green-400 mb-1 md:mb-2">40%</div>
-              <div className="text-sm text-gray-300">Average Savings</div>
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
+              <div className="text-3xl md:text-4xl font-black text-blue-600 mb-2">40%</div>
+              <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.averageSavings}</div>
             </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-green-400 mb-1 md:mb-2">80%</div>
-              <div className="text-sm text-gray-300">Utility Rebates</div>
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
+              <div className="text-3xl md:text-4xl font-black text-green-600 mb-2">80%</div>
+              <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.utilityRebates}</div>
             </div>
           </div>
           
-          <div className="bg-green-600/20 border border-green-500/30 rounded-xl p-8 mb-12 backdrop-blur-sm">
-            <ul className="text-left max-w-3xl mx-auto space-y-3 text-green-50">
-              <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-green-400"/> No-cost home energy assessment for eligible customers</li>
-              <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-green-400"/> Air sealing + insulation completed by certified professionals</li>
-              <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-green-400"/> Post-work results documented (blower-door testing when applicable)</li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="#contact" className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 before:absolute before:inset-0 before:bg-white/20 before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700 before:ease-out group" aria-label="Schedule No-Cost Assessment">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+            <a href="#contact" className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               <span className="relative z-10 flex items-center space-x-3">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>Schedule No Cost Assessment</span>
+                <span>{t.getFreeAssessment}</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </span>
             </a>
-            <a href="tel:+16175962476" className="relative overflow-hidden border-2 border-green-400/80 text-green-400 px-12 py-5 rounded-2xl text-xl font-bold transition-all duration-500 hover:bg-green-600 hover:text-white hover:border-green-600 hover:shadow-2xl hover:shadow-green-500/40 transform hover:-translate-y-1 hover:scale-105 backdrop-blur-sm group" aria-label="Call (617) 596-2476">
+            <a href="tel:+16175962476" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (617) 596-2476">
               <span className="flex items-center justify-center gap-3">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                 </svg>
-                <span>Call (617) 596-2476</span>
-                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <span>{t.callNow}</span>
+              </span>
+            </a>
+          </div>
+          
+          <div className="bg-gradient-to-br from-emerald-50 to-blue-50/50 border border-emerald-200/50 rounded-3xl p-10 mb-16 shadow-xl">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center bg-white/80 border border-emerald-200 rounded-full px-6 py-2 mb-4">
+                  <span className="text-sm font-semibold text-emerald-700 uppercase tracking-wide">{t.watchOurProcess}</span>
+                </div>
+                <h3 className="text-4xl font-black text-gray-900 mb-4">{t.seeHowWeTransform} <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.transform}</span> {t.transformHomes}</h3>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t.watchCertifiedProfessionals}</p>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Home Energy Assessment Process"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-8 text-center">
+                <div className="inline-flex items-center space-x-4">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">{t.bpiCertified}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">{t.documentedResults}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                    <span className="text-sm font-medium text-gray-700">{t.noCostAssessment}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <a href="#contact" className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <span className="relative z-10 flex items-center space-x-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span>{t.getFreeAssessment}</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </span>
             </a>
@@ -275,89 +126,161 @@ export default function Home() {
       </section>
 
       {/* Insulation Services Section */}
-      <section id="insulation" className="py-20 bg-slate-800">
+      <section id="insulation" className="py-24 bg-gradient-to-b from-white to-gray-50/50 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(34,197,94,0.05),transparent_50%),radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.03),transparent_60%)]"></div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Professional Insulation Services
+          <div className="text-center mb-20 scroll-animate">
+            <div className="inline-flex items-center bg-emerald-50 border border-emerald-200 rounded-full px-6 py-2 mb-6">
+              <span className="text-sm font-semibold text-emerald-700 uppercase tracking-wide">{t.ourServices}</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+              {t.professional} <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.insulation}</span> {t.services}
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Certified installers • Guaranteed results • Up to 80% utility rebates • No upfront costs
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              {t.servicesDescription}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-16 scroll-animate">
-            <div className="relative overflow-hidden rounded-2xl p-7 h-80 shadow-xl shadow-black/30 hover:shadow-2xl transition-all duration-500 ring-1 ring-green-500/30 hover:ring-green-400/60 hover:scale-[1.03] group bg-slate-800">
-              <Image
-                src="/attic.png"
-                alt="Attic Insulation"
-                fill
-                sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-slate-900/75 group-hover:bg-slate-900/20 transition-colors duration-700" />
-              <div className="relative z-10 flex flex-col justify-end h-full">
-                <h3 className="text-2xl font-extrabold mb-2 text-white drop-shadow-xl group-hover:text-white transition-colors duration-300">Attic Insulation</h3>
-                <p className="text-white/95 text-base group-hover:text-white transition-colors duration-300">
-                  Blown-in cellulose and fiberglass for maximum R-value
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-20 scroll-animate">
+            {/* Attic Insulation Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-emerald-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src="/attic.png"
+                    alt="Attic Insulation"
+                    fill
+                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    {t.popular}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{t.atticInsulation}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {t.atticDescription}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">{t.upTo80RebateShort}</span>
+                    <div className="bg-emerald-50 rounded-full p-2 group-hover:bg-emerald-100 transition-colors duration-300">
+                      <svg className="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="relative overflow-hidden rounded-2xl p-7 h-80 shadow-xl shadow-black/30 hover:shadow-2xl transition-all duration-500 ring-1 ring-green-500/30 hover:ring-green-400/60 hover:scale-[1.03] group bg-slate-800">
-              <Image
-                src="/blowinsu.png"
-                alt="Wall Insulation"
-                fill
-                sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-slate-900/75 group-hover:bg-slate-900/20 transition-colors duration-700" />
-              <div className="relative z-10 flex flex-col justify-end h-full">
-                <h3 className="text-2xl font-extrabold mb-2 text-white drop-shadow-xl group-hover:text-white transition-colors duration-300">Wall Insulation</h3>
-                <p className="text-white/95 text-base group-hover:text-white transition-colors duration-300">
-                  Injection foam and dense-pack for existing walls
-                </p>
+            {/* Wall Insulation Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-blue-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src="/blowinsu.png"
+                    alt="Wall Insulation"
+                    fill
+                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    {t.professional}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">{t.wallInsulation}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {t.wallDescription}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold">{t.professionalInstall}</span>
+                    <div className="bg-blue-50 rounded-full p-2 group-hover:bg-blue-100 transition-colors duration-300">
+                      <svg className="w-4 h-4 text-blue-600 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="relative overflow-hidden rounded-2xl p-7 h-80 shadow-xl shadow-black/30 hover:shadow-2xl transition-all duration-500 ring-1 ring-green-500/30 hover:ring-green-400/60 hover:scale-[1.03] group bg-slate-800">
-              <Image
-                src="/1picinsu.png"
-                alt="Basement Insulation"
-                fill
-                sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-slate-900/75 group-hover:bg-slate-900/20 transition-colors duration-700" />
-              <div className="relative z-10 flex flex-col justify-end h-full">
-                <h3 className="text-2xl font-extrabold mb-2 text-white drop-shadow-xl group-hover:text-white transition-colors duration-300">Basement Insulation</h3>
-                <p className="text-white/95 text-base group-hover:text-white transition-colors duration-300">
-                  Spray foam and rigid board for foundation walls
-                </p>
+            {/* Basement Insulation Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-purple-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src="/1picinsu.png"
+                    alt="Basement Insulation"
+                    fill
+                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    {t.foundation}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors duration-300">{t.basementInsulation}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {t.basementDescription}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold">{t.foundationExpert}</span>
+                    <div className="bg-purple-50 rounded-full p-2 group-hover:bg-purple-100 transition-colors duration-300">
+                      <svg className="w-4 h-4 text-purple-600 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="relative overflow-hidden rounded-2xl p-7 h-80 shadow-xl shadow-black/30 hover:shadow-2xl transition-all duration-500 ring-1 ring-green-500/30 hover:ring-green-400/60 hover:scale-[1.03] group bg-slate-800">
-              <Image
-                src="/image.png"
-                alt="Air Sealing"
-                fill
-                sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className="absolute inset-0 object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-slate-900/75 group-hover:bg-slate-900/20 transition-colors duration-700" />
-              <div className="relative z-10 flex flex-col justify-end h-full">
-                <h3 className="text-2xl font-extrabold mb-2 text-white drop-shadow-xl group-hover:text-white transition-colors duration-300">Air Sealing</h3>
-                <p className="text-white/95 text-base group-hover:text-white transition-colors duration-300">
-                  Complete thermal envelope sealing for maximum efficiency
-                </p>
+            {/* Air Sealing Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-orange-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-3xl">
+                  <Image
+                    src="/image.png"
+                    alt="Air Sealing"
+                    fill
+                    sizes="(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                    {t.complete}
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-300">{t.airSealing}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {t.airSealingDescription}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-semibold">{t.maxEfficiency}</span>
+                    <div className="bg-orange-50 rounded-full p-2 group-hover:bg-orange-100 transition-colors duration-300">
+                      <svg className="w-4 h-4 text-orange-600 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           
           <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-6">Why Choose Econova Insulation?</h3>
+            <h3 className="text-2xl font-bold mb-6">{t.whyChooseEconova}</h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="flex items-start space-x-3">
                 <div className="bg-white/20 rounded-full p-2 flex-shrink-0">
@@ -366,8 +289,8 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold mb-2">Certified Installers</div>
-                  <div className="text-green-100 text-sm">BPI & RESNET certified professionals with 15+ years experience</div>
+                  <div className="font-semibold mb-2">{t.certifiedInstallersTitle}</div>
+                  <div className="text-green-100 text-sm">{t.certifiedInstallersDesc}</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -377,8 +300,8 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold mb-2">Guaranteed Results</div>
-                  <div className="text-green-100 text-sm">30% energy bill reduction guarantee or money back</div>
+                  <div className="font-semibold mb-2">{t.guaranteedResultsTitle}</div>
+                  <div className="text-green-100 text-sm">{t.guaranteedResultsDesc}</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -388,8 +311,8 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold mb-2">No Upfront Costs</div>
-                  <div className="text-green-100 text-sm">$0 down with utility rebates up to 80% of total cost</div>
+                  <div className="font-semibold mb-2">{t.noUpfrontCostsTitle}</div>
+                  <div className="text-green-100 text-sm">{t.noUpfrontCostsDesc}</div>
                 </div>
               </div>
             </div>
@@ -398,112 +321,187 @@ export default function Home() {
       </section>
       
       {/* Energy Services Section */}
-      <section id="services" className="py-20 bg-slate-900">
+      <section id="services" className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-emerald-50/30 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-16 right-20 w-96 h-96 bg-gradient-to-br from-emerald-100/20 to-green-100/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-16 w-80 h-80 bg-gradient-to-tl from-blue-100/20 to-emerald-100/20 rounded-full blur-3xl"></div>
+        </div>
+        
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Complete Energy Solutions
+            <div className="inline-flex items-center bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
+              </svg>
+              {t.completeSolutions}
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+              {t.completeEnergySolutions}
             </h2>
-            <p className="text-xl text-gray-300">
-              From insulation to solar, we handle all your home energy needs
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              {t.completeEnergyDescription}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                </svg>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Solar Installation Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-green-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-emerald-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-emerald-500/50">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L13.09 7.26L18 4L15.74 9.09L21 10L15.74 10.91L18 16L13.09 12.74L12 18L10.91 12.74L6 16L8.26 10.91L3 10L8.26 9.09L6 4L10.91 7.26L12 2Z"/>
+                      <path d="M12 8C10.9 8 10 8.9 10 10S10.9 12 12 12S14 11.1 14 10S13.1 8 12 8Z"/>
+                    </svg>
+                  </div>
+                  <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">{t.solarInstallation}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {t.solarDescription}
+                </p>
+                
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-emerald-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.tier1Manufacturers}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-emerald-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.professionalDesignInstall}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-emerald-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.federalStateTaxCredits}</span>
+                  </div>
+                </div>
+                
+                <button className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                  Learn More
+                </button>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">Solar Installation</h3>
-              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
-                Premium solar panels with 25-year performance guarantee and net metering.
-              </p>
-              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Tier-1 panel manufacturers
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Professional design & installation
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Federal & state tax credits
-                </li>
-              </ul>
             </div>
             
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
-                </svg>
+            {/* Battery Storage Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-blue-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-blue-500/50">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM15 20H9V6h6v14zm-4.5-2H13v-2h-2.5v2zm0-3H13v-6h-2.5v6z"/>
+                      <path d="M12 1h2v2h-2V1zm-2 0h2v2h-2V1z"/>
+                    </svg>
+                  </div>
+                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">{t.advanced}</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">{t.batteryStorage}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {t.batteryDescription}
+                </p>
+                
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-blue-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.teslaPowerwall}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-blue-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.warranties10to15Years}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-blue-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.emergencyBackupPower}</span>
+                  </div>
+                </div>
+                
+                <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                  Learn More
+                </button>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">Battery Storage</h3>
-              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
-                Backup power systems with smart energy management and grid independence.
-              </p>
-              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Tesla Powerwall & Enphase
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  10-15 year warranties
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Emergency backup power
-                </li>
-              </ul>
             </div>
             
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-500/20 hover:border-green-400/50 hover:scale-105 transform hover:-translate-y-2 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center group-hover:from-green-300 group-hover:to-green-500 transition-all duration-300 group-hover:scale-110 transform shadow-lg group-hover:shadow-green-500/50">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
-                </svg>
+            {/* HVAC Efficiency Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-3xl blur opacity-0 group-hover:opacity-100 transition-all duration-500 scale-105"></div>
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 hover:border-orange-200 hover:scale-[1.02] hover:-translate-y-2">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-orange-500/50">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C13.1 2 14 2.9 14 4V6H16C17.1 6 18 6.9 18 8V18C18 19.1 17.1 20 16 20H8C6.9 20 6 19.1 6 18V8C6 6.9 6.9 6 8 6H10V4C10 2.9 10.9 2 12 2ZM12 4V6H12V4Z"/>
+                      <path d="M8 8V18H16V8H8ZM10 10H14V12H12V16H10V12H10V10Z"/>
+                      <path d="M9 1H15V3H9V1Z"/>
+                      <path d="M19 9V15H21V9H19Z"/>
+                      <path d="M3 9V15H5V9H3Z"/>
+                    </svg>
+                  </div>
+                  <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">{t.efficient}</span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:text-orange-600 transition-colors duration-300">{t.hvacEfficiency}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {t.hvacDescription}
+                </p>
+                
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-orange-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.heatPumpsMiniSplits}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-orange-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.smartHomeIntegration}</span>
+                  </div>
+                  <div className="flex items-center text-gray-700">
+                    <div className="bg-orange-100 rounded-full p-1.5 mr-3">
+                      <svg className="w-3 h-3 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.utilityRebatesAvailable}</span>
+                  </div>
+                </div>
+                
+                <button className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 transform hover:-translate-y-0.5">
+                  Learn More
+                </button>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-white text-center group-hover:text-green-400 transition-colors duration-300">HVAC Efficiency</h3>
-              <p className="text-gray-300 mb-6 text-center group-hover:text-gray-100 transition-colors duration-300">
-                High-efficiency heating and cooling systems with smart thermostats.
-              </p>
-              <ul className="space-y-3 text-sm text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Heat pumps & mini-splits
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Smart home integration
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-4 h-4 text-green-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                  </svg>
-                  Utility rebates available
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -515,10 +513,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center scroll-animate">
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
-                No Cost Home Energy Assessment
+                {t.noCostHomeAssessment}
               </h2>
               <p className="text-xl text-green-100 mb-8">
-                Our certified energy auditors will identify exactly where your home is losing energy and money. Get a detailed report with guaranteed savings projections.
+                {t.assessmentDescription}
               </p>
               
               <div className="space-y-4 mb-8">
@@ -528,7 +526,7 @@ export default function Home() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="font-medium">Blower door air leakage testing</span>
+                  <span className="font-medium">{t.blowerDoorTesting}</span>
                 </div>
                 <div className="flex items-center text-white">
                   <div className="bg-white/20 rounded-full p-2 mr-4">
@@ -536,7 +534,7 @@ export default function Home() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="font-medium">Thermal imaging camera inspection</span>
+                  <span className="font-medium">{t.thermalImaging}</span>
                 </div>
                 <div className="flex items-center text-white">
                   <div className="bg-white/20 rounded-full p-2 mr-4">
@@ -544,39 +542,39 @@ export default function Home() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
                     </svg>
                   </div>
-                  <span className="font-medium">Detailed savings report with rebate options</span>
+                  <span className="font-medium">{t.detailedSavingsReport}</span>
                 </div>
               </div>
               
               <button className="bg-white text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                Schedule Your No Cost Assessment
+                {t.scheduleNoCostAssessment}
               </button>
             </div>
             
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-6">Quick Assessment Form</h3>
-              <form className="space-y-4" onSubmit={() => {
-                // GTM lead submit event
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 border border-emerald-200/50 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t.quickAssessmentForm}</h3>
+              <form className="space-y-4" onSubmit={(e) => {
+                e.preventDefault();
                 import('@/lib/gtm')
                   .then(m => m.pushDataLayer({ event: 'lead_submit', form_id: 'quick_assessment' }))
                   .catch(() => {});
               }}>
                 <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="First Name" className="px-4 py-3 rounded-xl bg-white/20 text-white placeholder-green-100 border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50" />
-                  <input type="text" placeholder="Last Name" className="px-4 py-3 rounded-xl bg-white/20 text-white placeholder-green-100 border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50" />
+                  <input type="text" placeholder={t.firstName} className="px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" />
+                  <input type="text" placeholder={t.lastName} className="px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" />
                 </div>
-                <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-xl bg-white/20 text-white placeholder-green-100 border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50" />
-                <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 rounded-xl bg-white/20 text-white placeholder-green-100 border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50" />
-                <input type="text" placeholder="ZIP Code" className="w-full px-4 py-3 rounded-xl bg-white/20 text-white placeholder-green-100 border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50" />
+                <input type="email" placeholder={t.emailAddress} className="w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" />
+                <input type="tel" placeholder={t.phoneNumber} className="w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" />
+                <input type="text" placeholder={t.zipCode} className="w-full px-4 py-3 rounded-xl bg-gray-50 text-gray-800 placeholder-gray-500 border border-gray-300 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" />
                 <select className="w-full px-4 py-3 rounded-xl bg-white/20 text-white border border-white/30 focus:border-white focus:outline-none focus:ring-2 focus:ring-white/50">
-                  <option value="" disabled>Home Age</option>
-                  <option value="new" className="text-gray-900">Less than 5 years</option>
-                  <option value="recent" className="text-gray-900">5-15 years</option>
-                  <option value="older" className="text-gray-900">15-30 years</option>
-                  <option value="vintage" className="text-gray-900">Over 30 years</option>
+                  <option value="" disabled>{t.homeAge}</option>
+                  <option value="new" className="text-gray-900">{t.lessThan5Years}</option>
+                  <option value="recent" className="text-gray-900">{t.years5to15}</option>
+                  <option value="older" className="text-gray-900">{t.years15to30}</option>
+                  <option value="vintage" className="text-gray-900">{t.over30Years}</option>
                 </select>
-                <button type="submit" className="w-full bg-white text-green-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                  Get My No Cost Assessment
+                <button type="submit" className="w-full bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors shadow-lg">
+                  {t.getMyNoCostAssessment}
                 </button>
               </form>
             </div>
@@ -585,19 +583,19 @@ export default function Home() {
       </section>
       
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-slate-900">
+      <section id="testimonials" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
               What Our Customers Say
             </h2>
-            <p className="text-xl text-gray-300">
+            <p className="text-xl text-gray-600">
               Over 2,847 homeowners have saved money with Econova
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 mb-16 scroll-animate">
-            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gray-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 group">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -605,7 +603,7 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-300 mb-4 italic">
+              <p className="text-gray-600 mb-4 italic">
                 &ldquo;My energy bills went from $340/month to $180/month after Econova insulated my attic and walls. The rebates covered 75% of the cost - incredible value!&rdquo;
               </p>
               <div className="flex items-center">
@@ -613,13 +611,13 @@ export default function Home() {
                   SM
                 </div>
                 <div>
-                  <div className="text-white font-semibold">Sarah Martinez</div>
-                  <div className="text-gray-400 text-sm">Homeowner, Austin TX</div>
+                  <div className="text-gray-800 font-semibold">Sarah Martinez</div>
+                  <div className="text-gray-500 text-sm">Homeowner, Austin TX</div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gray-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 group">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -627,7 +625,7 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-300 mb-4 italic">
+              <p className="text-gray-600 mb-4 italic">
                 &ldquo;Professional installation, no upfront costs, and my house stays comfortable year-round now. The whole process was seamless and the team was fantastic.&rdquo;
               </p>
               <div className="flex items-center">
@@ -635,13 +633,13 @@ export default function Home() {
                   DJ
                 </div>
                 <div>
-                  <div className="text-white font-semibold">David Johnson</div>
-                  <div className="text-gray-400 text-sm">Homeowner, Denver CO</div>
+                  <div className="text-gray-800 font-semibold">David Johnson</div>
+                  <div className="text-gray-500 text-sm">Homeowner, Denver CO</div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-gray-200/60 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 group">
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -649,7 +647,7 @@ export default function Home() {
                   </svg>
                 ))}
               </div>
-              <p className="text-gray-300 mb-4 italic">
+              <p className="text-gray-600 mb-4 italic">
                 &ldquo;The energy audit found air leaks I never knew existed. After sealing and insulation, we&rsquo;re saving $200+ monthly. ROI was achieved in under 2 years!&rdquo;
               </p>
               <div className="flex items-center">
@@ -657,8 +655,8 @@ export default function Home() {
                   MR
                 </div>
                 <div>
-                  <div className="text-white font-semibold">Michael Rodriguez</div>
-                  <div className="text-gray-400 text-sm">Homeowner, Phoenix AZ</div>
+                  <div className="text-gray-800 font-semibold">Michael Rodriguez</div>
+                  <div className="text-gray-500 text-sm">Homeowner, Phoenix AZ</div>
                 </div>
               </div>
             </div>
@@ -686,140 +684,194 @@ export default function Home() {
       </section>
       
       {/* Financing Section */}
-      <section id="financing" className="py-20 bg-gradient-to-bl from-slate-700 via-gray-800 to-slate-800 relative overflow-hidden">
-        {/* Money/financial themed background */}
-        <div className="absolute inset-0 opacity-15">
-          <div className="absolute top-20 left-1/4 w-28 h-28 bg-green-400/20 rounded-full animate-ping" style={{animationDuration: '3s'}}></div>
-          <div className="absolute bottom-20 right-1/4 w-36 h-36 bg-emerald-500/20 rounded-full animate-ping" style={{animationDuration: '4s', animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-green-500/30 to-transparent"></div>
+      <section id="financing" className="py-20 bg-gradient-to-br from-white via-emerald-50/30 to-green-50/50 relative overflow-hidden">
+        {/* Subtle animated background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-emerald-400/10 to-green-500/10 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-32 right-16 w-40 h-40 bg-gradient-to-tl from-green-400/10 to-emerald-500/10 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-gradient-to-r from-emerald-300/10 to-green-400/10 rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
         </div>
+        
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16 scroll-animate">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Flexible Financing & Maximum Rebates
+            <div className="inline-flex items-center bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+              </svg>
+              {t.financingRebates}
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">{t.flexibleFinancing}</span>
+              <br />{t.maximumRebates}
             </h2>
-            <p className="text-xl text-gray-300">
-              Make energy efficiency affordable with $0 down payment options
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              {t.financingDescription}
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Utility Rebates & Incentives</h3>
+          <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
+            {/* Rebates Column */}
+            <div className="space-y-6">
+              <div className="flex items-center mb-8">
+                <div className="bg-emerald-500 rounded-full p-3 mr-4">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">{t.utilityRebatesIncentives}</h3>
+              </div>
+              
               <div className="space-y-4">
-                <div className="flex items-center p-4 bg-slate-700 rounded-lg">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">Up to 80% Utility Rebates</div>
-                    <div className="text-gray-300 text-sm">Mass Save, NYSERDA, and other programs</div>
-                  </div>
-                </div>
-                
-                <div className="flex items-center p-4 bg-slate-700 rounded-lg">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">Federal Tax Credits</div>
-                    <div className="text-gray-300 text-sm">Up to 30% for qualifying improvements</div>
+                <div className="group bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-emerald-100/50 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="text-lg font-bold text-gray-900">{t.upTo80UtilityRebates}</h4>
+                        <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold">{t.mostPopular}</span>
+                      </div>
+                      <p className="text-gray-600">{t.massSaveNyserda}</p>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="flex items-center p-4 bg-slate-700 rounded-lg">
-                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
-                    </svg>
+                <div className="group bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-emerald-100/50 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{t.federalTaxCredits}</h4>
+                      <p className="text-gray-600">{t.upTo30Qualifying}</p>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-white font-semibold">State & Local Incentives</div>
-                    <div className="text-gray-300 text-sm">Additional rebates vary by location</div>
+                </div>
+                
+                <div className="group bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-emerald-100/50 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z"/>
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-gray-900 mb-2">{t.stateLocalIncentives}</h4>
+                      <p className="text-gray-600">{t.additionalRebatesVary}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             
+            {/* Financing Column */}
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Financing Options</h3>
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <div className="grid grid-cols-3 gap-4 text-center mb-6">
-                  <div>
-                    <div className="text-3xl font-bold text-green-400 mb-2">$0</div>
-                    <div className="text-sm text-gray-300">Down Payment</div>
+              <div className="flex items-center mb-8">
+                <div className="bg-blue-500 rounded-full p-3 mr-4">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900">{t.financingOptions}</h3>
+              </div>
+              
+              <div className="bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-600">
+                {/* Top Stats */}
+                <div className="grid grid-cols-3 gap-6 mb-8">
+                  <div className="text-center">
+                    <div className="text-4xl font-black text-emerald-400 mb-2">{t.zeroDown}</div>
+                    <div className="text-sm font-medium text-slate-300">{t.downPaymentFinancing}</div>
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-green-400 mb-2">2.9%</div>
-                    <div className="text-sm text-gray-300">APR from</div>
+                  <div className="text-center">
+                    <div className="text-4xl font-black text-emerald-400 mb-2">{t.apr}</div>
+                    <div className="text-sm font-medium text-slate-300">{t.aprRate}</div>
                   </div>
-                  <div>
-                    <div className="text-3xl font-bold text-green-400 mb-2">20yr</div>
-                    <div className="text-sm text-gray-300">Terms</div>
+                  <div className="text-center">
+                    <div className="text-4xl font-black text-emerald-400 mb-2">{t.years20}</div>
+                    <div className="text-sm font-medium text-slate-300">{t.terms}</div>
                   </div>
                 </div>
                 
-                <ul className="space-y-3 text-gray-300 mb-6">
-                  <li className="flex items-center">
-                    <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Pre-qualification in 60 seconds
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    No prepayment penalties
-                  </li>
-                  <li className="flex items-center">
-                    <svg className="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    Monthly payments often less than savings
-                  </li>
-                </ul>
+                {/* Features List */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center text-white">
+                    <div className="bg-emerald-500/20 rounded-full p-2 mr-4">
+                      <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.prequalification60Seconds}</span>
+                  </div>
+                  <div className="flex items-center text-white">
+                    <div className="bg-emerald-500/20 rounded-full p-2 mr-4">
+                      <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.noPrepaymentPenalties}</span>
+                  </div>
+                  <div className="flex items-center text-white">
+                    <div className="bg-emerald-500/20 rounded-full p-2 mr-4">
+                      <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                    </div>
+                    <span className="font-medium">{t.paymentsLessThanSavings}</span>
+                  </div>
+                </div>
                 
-                <button className="w-full bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                {/* CTA Button */}
+                <button className="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-emerald-500/25 transform hover:-translate-y-1 transition-all duration-300">
                   Check Your Pre-Qualification
                 </button>
               </div>
             </div>
           </div>
           
-          <div className="bg-green-600 p-8 rounded-lg text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Start Saving Immediately – No Out-of-Pocket Costs
-            </h3>
-            <p className="text-green-100 mb-6 text-lg">
-              With utility rebates covering up to 80% and flexible financing, many homeowners pay nothing upfront and start saving from day one.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Calculate My Savings
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors">
-                Schedule No Cost Assessment
-              </button>
+          {/* Bottom CTA Section */}
+          <div className="bg-gradient-to-r from-emerald-600 via-green-600 to-emerald-700 rounded-3xl p-8 md:p-12 text-center shadow-2xl">
+            <div className="max-w-4xl mx-auto">
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm text-emerald-100 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                </svg>
+                No Out-of-Pocket Costs
+              </div>
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
+                Start Saving Immediately
+              </h3>
+              <p className="text-emerald-100 mb-8 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+                With utility rebates covering up to 80% and flexible financing, many homeowners pay nothing upfront and start saving from day one.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
+                <button className="flex-1 bg-white text-emerald-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                  Calculate My Savings
+                </button>
+                <button className="flex-1 border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-emerald-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
+                  Schedule No Cost Assessment
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
+      <section id="contact" className="py-20 bg-gray-50 text-gray-800">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Saving?</h2>
-          <p className="text-xl mb-8 text-gray-300">
+          <h2 className="text-4xl font-bold mb-6 text-gray-800">Ready to Start Saving?</h2>
+          <p className="text-xl mb-8 text-gray-600">
             Get a no cost consultation and assessment from our certified energy experts today.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg">
-              Call 833 363 7442
+              Call (617) 596-2476
             </button>
             <button className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
               Schedule Consultation
@@ -828,115 +880,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-b from-slate-900 to-gray-950 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-4 gap-12">
-            {/* Logo Section */}
-            <div className="flex flex-col items-start">
-              <Link href="/" className="mb-8">
-                <Image 
-                  src="/Untitled design (26).png" 
-                  alt="Econova Logo" 
-                  width={180} 
-                  height={180} 
-                  className="h-36 w-auto hover:scale-105 transition-transform duration-300"
-                />
-              </Link>
-              <div className="space-y-4">
-                <Link 
-                  href="/energy-assessment/" 
-                  className="inline-block bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-green-500/25 transition-all duration-300 transform hover:-translate-y-0.5"
-                >
-                  Schedule Assessment
-                </Link>
-                <div className="text-gray-400">
-                  <div className="flex items-center mb-2">
-                    <svg className="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                    </svg>
-                    <a href="tel:8333637442" className="hover:text-green-400 transition-colors">(833) 363-7442</a>
-                  </div>
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                    </svg>
-                    <a href="mailto:info@econova.com" className="hover:text-green-400 transition-colors">info@econova.com</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="text-xl font-bold mb-6 text-white">Our Services</h4>
-              <ul className="space-y-3">
-                <li><Link href="/attic-insulation/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Attic Insulation</Link></li>
-                <li><Link href="/wall-insulation-dense-pack/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Wall Insulation</Link></li>
-                <li><Link href="/basement-insulation/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Basement Insulation</Link></li>
-                <li><Link href="/air-sealing/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Air Sealing</Link></li>
-                <li><Link href="/hvac/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">HVAC Heat Pumps</Link></li>
-                <li><Link href="/energy-assessment/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Energy Assessment</Link></li>
-                <li><Link href="/mass-save/" className="text-gray-300 hover:text-green-400 transition-colors duration-200">Mass Save® Rebates</Link></li>
-              </ul>
-            </div>
-
-            {/* Areas We Serve - 2 Columns */}
-            <div className="md:col-span-2">
-              <h4 className="text-xl font-bold mb-6 text-white">Areas We Serve in Massachusetts</h4>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                <div>
-                  {CITIES.slice(0, Math.ceil(CITIES.length / 2)).map(city => (
-                    <div key={city.slug} className="mb-2">
-                      <Link 
-                        href={`/${city.slug}/`} 
-                        className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm"
-                      >
-                        {city.city}, {city.state}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  {CITIES.slice(Math.ceil(CITIES.length / 2)).map(city => (
-                    <div key={city.slug} className="mb-2">
-                      <Link 
-                        href={`/${city.slug}/`} 
-                        className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm"
-                      >
-                        {city.city}, {city.state}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <Link 
-                href="/service-area/" 
-                className="inline-block mt-6 text-green-400 hover:text-green-300 transition-colors font-medium"
-              >
-                View All Service Areas →
-              </Link>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="border-t border-gray-700 mt-16 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-gray-400 text-sm">
-                &copy; 2024 Econova Energy Solutions. All rights reserved. 
-                <span className="mx-2">|</span>
-                Licensed & Insured Energy Contractors
-              </p>
-              <div className="flex space-x-6 text-gray-400 text-sm">
-                <a href="#" className="hover:text-green-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-green-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-green-400 transition-colors">Sitemap</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
