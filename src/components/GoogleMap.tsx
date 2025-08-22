@@ -26,6 +26,11 @@ export default function GoogleMap({
   zoom = 10,
   markers = []
 }: GoogleMapProps) {
+  // Responsive zoom based on screen size
+  const getResponsiveZoom = () => {
+    if (typeof window === 'undefined') return zoom;
+    return window.innerWidth < 768 ? Math.max(zoom - 1, 8) : zoom;
+  };
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
 
@@ -33,10 +38,21 @@ export default function GoogleMap({
     const initializeMap = () => {
       if (!window.google || !mapRef.current) return;
 
-      // Create map
+      // Create map with mobile optimizations
       const map = new window.google.maps.Map(mapRef.current, {
         center,
-        zoom,
+        zoom: getResponsiveZoom(),
+        // Mobile-friendly controls
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: true,
+        // Mobile gesture handling
+        gestureHandling: 'cooperative',
+        // Disable default UI on small screens
+        disableDefaultUI: window.innerWidth < 768,
         styles: [
           {
             featureType: 'all',
@@ -68,37 +84,59 @@ export default function GoogleMap({
 
       mapInstanceRef.current = map;
 
-      // Add markers
+      // Add markers with mobile optimizations
       markers.forEach((marker) => {
+        // Larger icons for mobile devices
+        const isMobile = window.innerWidth < 768;
+        const iconSize = isMobile ? 32 : 24;
+        const iconHeight = isMobile ? 42 : 32;
+        
         const mapMarker = new window.google.maps.Marker({
           position: marker.position,
           map,
           title: marker.title,
           icon: {
             url: 'data:image/svg+xml;base64,' + btoa(`
-              <svg width="24" height="32" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="${iconSize}" height="${iconHeight}" viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 0C5.373 0 0 5.373 0 12c0 9 12 20 12 20s12-11 12-20c0-6.627-5.373-12-12-12z" fill="#059669"/>
                 <circle cx="12" cy="12" r="6" fill="white"/>
                 <circle cx="12" cy="12" r="3" fill="#059669"/>
               </svg>
             `),
-            scaledSize: new window.google.maps.Size(24, 32),
-            anchor: new window.google.maps.Point(12, 32)
+            scaledSize: new window.google.maps.Size(iconSize, iconHeight),
+            anchor: new window.google.maps.Point(iconSize / 2, iconHeight)
           }
         });
 
         if (marker.info) {
           const infoWindow = new window.google.maps.InfoWindow({
             content: `
-              <div style="padding: 8px; max-width: 200px;">
-                <h4 style="margin: 0 0 8px 0; color: #059669; font-weight: 600;">${marker.title}</h4>
-                <p style="margin: 0; color: #374151; font-size: 14px;">${marker.info}</p>
+              <div style="padding: ${isMobile ? '12px' : '8px'}; max-width: ${isMobile ? '280px' : '200px'}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                <h4 style="margin: 0 0 8px 0; color: #059669; font-weight: 600; font-size: ${isMobile ? '16px' : '14px'};">${marker.title}</h4>
+                <p style="margin: 0; color: #374151; font-size: ${isMobile ? '14px' : '13px'}; line-height: 1.4;">${marker.info}</p>
               </div>
-            `
+            `,
+            // Mobile-friendly options
+            maxWidth: isMobile ? 300 : 250,
+            pixelOffset: new window.google.maps.Size(0, isMobile ? -10 : -5)
           });
 
+          // Touch-friendly click handling
           mapMarker.addListener('click', () => {
+            // Close other info windows first
+            markers.forEach((_, index) => {
+              if (window.currentInfoWindow && window.currentInfoWindow !== infoWindow) {
+                window.currentInfoWindow.close();
+              }
+            });
+            
             infoWindow.open(map, mapMarker);
+            window.currentInfoWindow = infoWindow;
+          });
+
+          // Close info window when map is clicked (mobile-friendly)
+          map.addListener('click', () => {
+            infoWindow.close();
           });
         }
       });
@@ -156,14 +194,31 @@ export default function GoogleMap({
 
     loadGoogleMaps();
 
+    // Handle window resize for responsive behavior
+    const handleResize = () => {
+      if (mapInstanceRef.current) {
+        window.google.maps.event.trigger(mapInstanceRef.current, 'resize');
+        mapInstanceRef.current.setZoom(getResponsiveZoom());
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      // Cleanup if needed
+      window.removeEventListener('resize', handleResize);
     };
   }, [center, zoom, markers]);
 
   return (
-    <div className={`${className} rounded-xl overflow-hidden shadow-2xl border border-emerald-100`}>
-      <div ref={mapRef} className="w-full h-full" />
+    <div className={`${className} rounded-xl overflow-hidden shadow-2xl border border-emerald-100 touch-pan-x touch-pan-y`}>
+      <div 
+        ref={mapRef} 
+        className="w-full h-full min-h-[300px] md:min-h-[400px]"
+        style={{ 
+          touchAction: 'pan-x pan-y',
+          WebkitOverflowScrolling: 'touch'
+        }}
+      />
     </div>
   );
 }
