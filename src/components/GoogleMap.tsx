@@ -1,5 +1,6 @@
 'use client';
 
+// Force cache refresh for deployment
 interface GoogleMapProps {
   className?: string;
   center?: { lat: number; lng: number };

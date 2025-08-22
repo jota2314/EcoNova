@@ -8,6 +8,7 @@ import GoogleMap from '@/components/GoogleMap';
 export const metadata = {
   title: 'Service Areas Across Massachusetts | Professional Energy Services | Econova',
   description: 'Econova provides comprehensive insulation, air sealing, and HVAC services across Massachusetts. Serving 35+ communities with Mass Save® rebates and professional energy efficiency solutions.',
+  keywords: 'Massachusetts energy services, insulation, air sealing, HVAC, Mass Save rebates',
 };
 
 // Create markers for major service areas
