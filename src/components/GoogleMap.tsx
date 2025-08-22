@@ -134,11 +134,23 @@ export default function GoogleMap({
         return;
       }
 
+      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+      console.log('Google Maps API Key:', apiKey ? 'Found' : 'Missing');
+      console.log('Environment:', process.env.NODE_ENV);
+      
+      if (!apiKey) {
+        console.error('Google Maps API key is missing. Please check your Vercel environment variables.');
+        return;
+      }
+
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=geometry`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=geometry&loading=async`;
       script.async = true;
       script.defer = true;
       script.onload = initializeMap;
+      script.onerror = () => {
+        console.error('Failed to load Google Maps API');
+      };
       document.head.appendChild(script);
     };
 
