@@ -59,7 +59,7 @@ export default function Navigation() {
             <div className="flex items-center group">
               <Link href="/" className="relative flex items-center">
                 <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-150"></div>
-                <Image src="/logo (4).png" alt="Econova Logo" width={130} height={130} className="h-16 w-auto hover:scale-105 transition-all duration-500 relative z-10"/>
+                <Image src="/econova-logo.png" alt="Econova Logo" width={130} height={130} className="h-16 w-auto hover:scale-105 transition-all duration-500 relative z-10"/>
               </Link>
             </div>
             

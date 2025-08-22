@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     url: "https://econovaenergysaving.com",
     images: [
       {
-        url: "https://econovaenergysaving.com/logo%20(4).png",
+        url: "https://econovaenergysaving.com/econova-logo.png",
         width: 1200,
         height: 630,
         alt: "Econova - Professional Home Insulation"
@@ -82,7 +82,7 @@ export default function RootLayout({
                 url: "https://econovaenergysaving.com",
                 telephone: "(617) 596-2476",
                 sameAs: [],
-                logo: "https://econovaenergysaving.com/logo%20(4).png"
+                logo: "https://econovaenergysaving.com/econova-logo.png"
               })
             }}
           />

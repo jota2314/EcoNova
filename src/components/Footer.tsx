@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="flex flex-col items-start">
             <Link href="/" className="mb-8">
               <Image 
-                src="/logo (4).png" 
+                src="/econova-logo.png" 
                 alt="Econova Logo" 
                 width={120} 
                 height={120} 
