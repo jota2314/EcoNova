@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import TagManager from "@/components/TagManager";
 import TelClickTracker from "@/components/TelClickTracker";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     url: "https://econovaenergysaving.com",
     images: [
       {
-        url: "https://econovaenergysaving.com/Untitled%20design%20(26).png",
+        url: "https://econovaenergysaving.com/logo%20(4).png",
         width: 1200,
         height: 630,
         alt: "Econova - Professional Home Insulation"
@@ -65,68 +66,70 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TagManager />
-        <TelClickTracker />
-        {/* Schema.org Organization */}
-        <Script
-          id="schema-organization"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Econova",
-              url: "https://econovaenergysaving.com",
-              telephone: "(617) 596-2476",
-              sameAs: [],
-              logo: "https://econovaenergysaving.com/Untitled%20design%20(26).png"
-            })
-          }}
-        />
-        {/* Schema.org LocalBusiness with NAP */}
-        <Script
-          id="schema-localbusiness"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Econova",
-              description: "Professional home insulation and energy efficiency services",
-              url: "https://econovaenergysaving.com",
-              telephone: "(617) 596-2476",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "10 Industrial Way",
-                addressLocality: "Wilmington",
-                addressRegion: "MA",
-                postalCode: "01887",
-                addressCountry: "US"
-              },
-              areaServed: {
-                "@type": "Country",
-                name: "United States"
-              },
-              hasOfferCatalog: {
-                "@type": "OfferCatalog",
-                name: "Home Energy Services",
-                itemListElement: [
-                  {
-                    "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: "Attic Insulation Installation" }
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: { "@type": "Service", name: "Home Energy Audit" }
-                  }
-                ]
-              }
-            })
-          }}
-        />
-        {children}
+        <LanguageProvider>
+          <TagManager />
+          <TelClickTracker />
+          {/* Schema.org Organization */}
+          <Script
+            id="schema-organization"
+            type="application/ld+json"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Econova",
+                url: "https://econovaenergysaving.com",
+                telephone: "(617) 596-2476",
+                sameAs: [],
+                logo: "https://econovaenergysaving.com/logo%20(4).png"
+              })
+            }}
+          />
+          {/* Schema.org LocalBusiness with NAP */}
+          <Script
+            id="schema-localbusiness"
+            type="application/ld+json"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LocalBusiness",
+                name: "Econova",
+                description: "Professional home insulation and energy efficiency services",
+                url: "https://econovaenergysaving.com",
+                telephone: "(617) 596-2476",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "10 Industrial Way",
+                  addressLocality: "Wilmington",
+                  addressRegion: "MA",
+                  postalCode: "01887",
+                  addressCountry: "US"
+                },
+                areaServed: {
+                  "@type": "Country",
+                  name: "United States"
+                },
+                hasOfferCatalog: {
+                  "@type": "OfferCatalog",
+                  name: "Home Energy Services",
+                  itemListElement: [
+                    {
+                      "@type": "Offer",
+                      itemOffered: { "@type": "Service", name: "Attic Insulation Installation" }
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: { "@type": "Service", name: "Home Energy Audit" }
+                    }
+                  ]
+                }
+              })
+            }}
+          />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
