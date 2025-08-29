@@ -3,11 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useAssessmentForm } from '@/contexts/AssessmentFormContext';
 import { LANGUAGES } from '@/lib/translations';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const { openForm } = useAssessmentForm();
 
   return (
     <>
@@ -38,7 +40,7 @@ export default function Navigation() {
                 </svg>
                 {t.licensedInsured}
               </div>
-              <Link href="/energy-assessment/" className="relative overflow-hidden bg-white/20 backdrop-blur-sm text-white px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 hover:bg-white/30 hover:shadow-xl hover:shadow-white/25 transform hover:-translate-y-0.5 border border-white/30 group">
+              <button onClick={openForm} className="relative overflow-hidden bg-white/20 backdrop-blur-sm text-white px-4 sm:px-6 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-500 hover:bg-white/30 hover:shadow-xl hover:shadow-white/25 transform hover:-translate-y-0.5 border border-white/30 group">
                 <span className="relative z-10 flex items-center space-x-1 sm:space-x-2">
                   <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -46,7 +48,7 @@ export default function Navigation() {
                   <span className="hidden sm:inline">{t.freeAssessment}</span>
                   <span className="sm:hidden">{t.freeAssessment}</span>
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -116,12 +118,12 @@ export default function Navigation() {
                       </svg>
                       {t.massSaveFaqs}
                     </Link>
-                    <Link href="/energy-assessment/" className="flex items-center px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 transition-all duration-200 border-l-2 border-transparent hover:border-emerald-500 group/item">
+                    <button onClick={openForm} className="flex items-center px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 transition-all duration-200 border-l-2 border-transparent hover:border-emerald-500 group/item w-full text-left">
                       <svg className="w-4 h-4 mr-3 opacity-60 group-hover/item:opacity-100 group-hover/item:text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"/>
                       </svg>
                       {t.eligibilityRequirements}
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -164,12 +166,12 @@ export default function Navigation() {
                       </svg>
                       {t.airSealing}
                     </Link>
-                    <Link href="/energy-assessment/" className="flex items-center px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 transition-all duration-200 border-l-2 border-transparent hover:border-emerald-500 group/item">
+                    <button onClick={openForm} className="flex items-center px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 transition-all duration-200 border-l-2 border-transparent hover:border-emerald-500 group/item w-full text-left">
                       <svg className="w-4 h-4 mr-3 opacity-60 group-hover/item:opacity-100 group-hover/item:text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/>
                       </svg>
                       {t.energyAssessmentNav}
-                    </Link>
+                    </button>
                     <Link href="/hvac/" className="flex items-center px-6 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-600 transition-all duration-200 border-l-2 border-transparent hover:border-emerald-500 group/item">
                       <svg className="w-4 h-4 mr-3 opacity-60 group-hover/item:opacity-100 group-hover/item:text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
@@ -277,7 +279,7 @@ export default function Navigation() {
                   <Link href="/mass-save-heat-loan/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.heatLoanFinancing}</Link>
                   <Link href="/mass-save-renters/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.assessmentsRenters}</Link>
                   <Link href="/mass-save-faqs/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.massSaveFaqs}</Link>
-                  <Link href="/energy-assessment/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.eligibilityRequirements}</Link>
+                  <button onClick={() => { openForm(); setIsMobileMenuOpen(false); }} className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors w-full text-left">{t.eligibilityRequirements}</button>
                 </div>
               </div>
               
@@ -289,7 +291,7 @@ export default function Navigation() {
                   <Link href="/wall-insulation-dense-pack/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.wallInsulation}</Link>
                   <Link href="/basement-insulation/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.basementInsulation}</Link>
                   <Link href="/air-sealing/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.airSealing}</Link>
-                  <Link href="/energy-assessment/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.energyAssessmentNav}</Link>
+                  <button onClick={() => { openForm(); setIsMobileMenuOpen(false); }} className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors w-full text-left">{t.energyAssessmentNav}</button>
                   <Link href="/hvac/" className="block py-2 text-gray-700 hover:text-emerald-600 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>{t.hvacHeatPumps}</Link>
                 </div>
               </div>

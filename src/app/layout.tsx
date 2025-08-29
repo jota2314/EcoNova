@@ -4,6 +4,8 @@ import Script from "next/script";
 import TagManager from "@/components/TagManager";
 import TelClickTracker from "@/components/TelClickTracker";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { AssessmentFormProvider } from "@/contexts/AssessmentFormContext";
+import AssessmentFormPopup from "@/components/AssessmentFormPopup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -128,7 +130,10 @@ export default function RootLayout({
               })
             }}
           />
-          {children}
+          <AssessmentFormProvider>
+            {children}
+            <AssessmentFormPopup />
+          </AssessmentFormProvider>
         </LanguageProvider>
       </body>
     </html>

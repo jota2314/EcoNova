@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAssessmentForm } from "@/contexts/AssessmentFormContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   const { t } = useLanguage();
+  const { openForm } = useAssessmentForm();
   useScrollAnimation();
 
   return (
@@ -49,7 +51,7 @@ export default function Home() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-            <a href="#contact" className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
+            <button onClick={openForm} className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               <span className="relative z-10 flex items-center space-x-3">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,7 +62,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </span>
-            </a>
+            </button>
             <a href="tel:+17817324817" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (781) 732-4817">
               <span className="flex items-center justify-center gap-3">
                 <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
@@ -115,7 +117,7 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center">
-            <a href="#contact" className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
+            <button onClick={openForm} className="group relative overflow-hidden bg-gradient-to-r from-emerald-600 to-green-600 text-white px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 hover:scale-[1.02] border-2 border-transparent hover:border-white/20" aria-label="Schedule No-Cost Assessment">
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               <span className="relative z-10 flex items-center space-x-3">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +128,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </section>
