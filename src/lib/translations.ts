@@ -49,7 +49,7 @@ export const translations = {
     energyEfficient: 'Energy Efficient',
     homesIn: 'Homes in',
     heroSubtitle: 'BPI-certified professionals serving',
-    massSaveRebatesHero: 'Mass Save® rebates up to 80%',
+    massSaveRebatesHero: 'Mass Save® rebates up to 75%',
     documentedSavings: 'Documented energy savings with guaranteed results',
     downPayment: 'Down Payment',
     averageSavings: 'Average Savings',
@@ -58,7 +58,7 @@ export const translations = {
     callNow: 'Call Now',
     nowServingMass: 'Now serving Massachusetts homeowners',
     homeSolutions: 'Home Solutions',
-    heroDescription: 'BPI-certified professionals • Mass Save® rebates up to 80% • Documented energy savings with guaranteed results',
+    heroDescription: 'BPI-certified professionals • Mass Save® rebates up to 75% • Documented energy savings with guaranteed results',
     watchOurProcess: 'Watch Our Process',
     seeHowWeTransform: 'See How We',
     transformHomes: 'Homes',
@@ -78,9 +78,9 @@ export const translations = {
     insulation: 'Insulation',
     certifiedInstallers: 'Certified installers',
     guaranteedResults: 'Guaranteed results',
-    upTo80Rebate: 'Up to 80% utility rebates',
+    upTo80Rebate: 'Up to 75% utility rebates',
     noUpfrontCosts: 'No upfront costs',
-    servicesDescription: 'Certified installers • Guaranteed results • Up to 80% utility rebates • No upfront costs',
+    servicesDescription: 'Certified installers • Guaranteed results • Up to 75% utility rebates • No upfront costs',
     
     // Service Cards
     atticInsulation: 'Attic Insulation',
@@ -99,7 +99,7 @@ export const translations = {
     professionalInstall: 'Professional install',
     foundationExpert: 'Foundation expert',
     maxEfficiency: 'Max efficiency',
-    upTo80RebateShort: 'Up to 80% rebate',
+    upTo80RebateShort: 'Up to 75% rebate',
     
     // Why Choose Section
     whyChoose: 'Why',
@@ -112,8 +112,8 @@ export const translations = {
     guaranteedResultsDesc: '30% energy bill reduction guarantee or money back',
     homeownersOrMoney: 'homeowners or money back',
     noUpfrontCostsTitle: 'No Upfront Costs',
-    noUpfrontCostsDesc: '$0 down with utility rebates up to 80% of total cost',
-    residentsWithRebates: 'residents with utility rebates up to 80% of total cost',
+    noUpfrontCostsDesc: '$0 down with utility rebates up to 75% of total cost',
+    residentsWithRebates: 'residents with utility rebates up to 75% of total cost',
     
     // Energy Assessment
     noCostHomeAssessment: 'No Cost Home Energy Assessment',
@@ -198,9 +198,9 @@ export const translations = {
     financingRebates: 'Financing & Rebates',
     flexibleFinancing: 'Flexible Financing',
     maximumRebates: '& Maximum Rebates',
-    financingDescription: 'Make energy efficiency affordable with $0 down payment options and utility rebates covering up to 80%',
+    financingDescription: 'Make energy efficiency affordable with $0 down payment options and utility rebates covering up to 75%',
     utilityRebatesIncentives: 'Utility Rebates & Incentives',
-    upTo80UtilityRebates: 'Up to 80% Utility Rebates',
+    upTo80UtilityRebates: 'Up to 75% Utility Rebates',
     massSaveNyserda: 'Mass Save, NYSERDA, and other utility programs',
     federalTaxCredits: 'Federal Tax Credits',
     upTo30Qualifying: 'Up to 30% for qualifying improvements',
@@ -219,7 +219,7 @@ export const translations = {
     checkPrequalification: 'Check Your Pre-Qualification',
     noOutOfPocketCosts: 'No Out-of-Pocket Costs',
     startSavingImmediately: 'Start Saving Immediately',
-    startSavingDescription: 'With utility rebates covering up to 80% and flexible financing, many homeowners pay nothing upfront and start saving from day one.',
+    startSavingDescription: 'With utility rebates covering up to 75% and flexible financing, many homeowners pay nothing upfront and start saving from day one.',
     calculateMySavings: 'Calculate My Savings',
     scheduleNoCostAssessmentBtn: 'Schedule No Cost Assessment',
     
@@ -229,7 +229,7 @@ export const translations = {
     getConsultationToday: 'Get a no cost consultation and assessment from our certified energy experts today.',
     getConsultation: 'Get a no cost consultation and assessment from our certified energy experts serving',
     today: 'today.',
-    callPhoneNumber: 'Call (617) 596-2476',
+    callPhoneNumber: 'Call (781) 732-4817',
     scheduleConsultation: 'Schedule Consultation',
     consultation: 'Consultation',
     
@@ -286,7 +286,7 @@ export const translations = {
     energyEfficient: 'Eficiencia Energética',
     homesIn: 'Hogares en',
     heroSubtitle: 'Profesionales certificados por BPI sirviendo',
-    massSaveRebatesHero: 'Reembolsos Mass Save® hasta 80%',
+    massSaveRebatesHero: 'Reembolsos Mass Save® hasta 75%',
     documentedSavings: 'Ahorros energéticos documentados con resultados garantizados',
     downPayment: 'Pago Inicial',
     averageSavings: 'Ahorro Promedio',
@@ -295,7 +295,7 @@ export const translations = {
     callNow: 'Llamar Ahora',
     nowServingMass: 'Ahora sirviendo propietarios de Massachusetts',
     homeSolutions: 'Soluciones para el Hogar',
-    heroDescription: 'Profesionales certificados BPI • Reembolsos Mass Save® hasta 80% • Ahorros energéticos documentados con resultados garantizados',
+    heroDescription: 'Profesionales certificados BPI • Reembolsos Mass Save® hasta 75% • Ahorros energéticos documentados con resultados garantizados',
     watchOurProcess: 'Ver Nuestro Proceso',
     seeHowWeTransform: 'Ve Cómo',
     transformHomes: 'Hogares',
@@ -348,7 +348,7 @@ export const translations = {
     homeownersOrMoney: 'propietarios o devolución del dinero',
     noUpfrontCostsTitle: 'Sin Costos Iniciales',
     noUpfrontCostsDesc: '$0 inicial para',
-    residentsWithRebates: 'residentes con reembolsos hasta 80% del costo total',
+    residentsWithRebates: 'residentes con reembolsos hasta 75% del costo total',
     
     // Energy Assessment
     noCostHomeAssessment: 'Evaluación Energética Sin Costo del Hogar',
@@ -514,7 +514,7 @@ export const translations = {
     energyEfficient: 'Eficiência Energética',
     homesIn: 'Casas em',
     heroSubtitle: 'Profissionais certificados BPI servindo',
-    massSaveRebatesHero: 'Reembolsos Mass Save® até 80%',
+    massSaveRebatesHero: 'Reembolsos Mass Save® até 75%',
     documentedSavings: 'Economias energéticas documentadas com resultados garantidos',
     downPayment: 'Entrada',
     averageSavings: 'Economia Média',
@@ -523,7 +523,7 @@ export const translations = {
     callNow: 'Ligar Agora',
     nowServingMass: 'Agora servindo proprietários de Massachusetts',
     homeSolutions: 'Soluções Residenciais',
-    heroDescription: 'Profissionais certificados BPI • Reembolsos Mass Save® até 80% • Economias energéticas documentadas com resultados garantidos',
+    heroDescription: 'Profissionais certificados BPI • Reembolsos Mass Save® até 75% • Economias energéticas documentadas com resultados garantidos',
     watchOurProcess: 'Assista Nosso Processo',
     seeHowWeTransform: 'Veja Como',
     transformHomes: 'Casas',
@@ -540,9 +540,9 @@ export const translations = {
     professionalServices: 'Profissionais',
     insulation: 'Isolamento',
     certifiedInstallers: 'Instaladores certificados servindo',
-    servicesDescription: 'Instaladores certificados • Resultados garantidos • Até 80% reembolsos serviços • Sem custos iniciais',
+    servicesDescription: 'Instaladores certificados • Resultados garantidos • Até 75% reembolsos serviços • Sem custos iniciais',
     guaranteedResults: 'Resultados garantidos',
-    upTo80Rebate: 'Até 80% reembolsos serviços',
+    upTo80Rebate: 'Até 75% reembolsos serviços',
     noUpfrontCosts: 'Sem custos iniciais',
     
     // Service Cards
@@ -562,7 +562,7 @@ export const translations = {
     professionalInstall: 'Instalação profissional',
     foundationExpert: 'Especialista em fundação',
     maxEfficiency: 'Máxima eficiência',
-    upTo80RebateShort: 'Até 80% reembolso',
+    upTo80RebateShort: 'Até 75% reembolso',
     
     // Why Choose Section
     whyChoose: 'Por que Proprietários de',
@@ -576,7 +576,7 @@ export const translations = {
     homeownersOrMoney: 'proprietários ou dinheiro de volta',
     noUpfrontCostsTitle: 'Sem Custos Iniciais',
     noUpfrontCostsDesc: '$0 entrada para',
-    residentsWithRebates: 'residentes com reembolsos até 80% do custo total',
+    residentsWithRebates: 'residentes com reembolsos até 75% do custo total',
     
     // Energy Assessment
     noCostHomeAssessment: 'Avaliação Energética Residencial Sem Custo',
@@ -657,9 +657,9 @@ export const translations = {
     financingRebates: 'Financiamento e Reembolsos',
     flexibleFinancing: 'Financiamento Flexível',
     maximumRebates: 'e Reembolsos Máximos',
-    financingDescription: 'Torne a eficiência energética acessível com opções de pagamento inicial de $0 e reembolsos de serviços públicos cobrindo até 80%',
+    financingDescription: 'Torne a eficiência energética acessível com opções de pagamento inicial de $0 e reembolsos de serviços públicos cobrindo até 75%',
     utilityRebatesIncentives: 'Reembolsos e Incentivos de Serviços Públicos',
-    upTo80UtilityRebates: 'Até 80% Reembolsos de Serviços',
+    upTo80UtilityRebates: 'Até 75% Reembolsos de Serviços',
     massSaveNyserda: 'Mass Save, NYSERDA, e outros programas de serviços públicos',
     federalTaxCredits: 'Créditos Fiscais Federais',
     upTo30Qualifying: 'Até 30% para melhorias qualificadas',
@@ -678,7 +678,7 @@ export const translations = {
     checkPrequalification: 'Verifique Sua Pré-Qualificação',
     noOutOfPocketCosts: 'Sem Custos de Bolso',
     startSavingImmediately: 'Comece a Economizar Imediatamente',
-    startSavingDescription: 'Com reembolsos de serviços públicos cobrindo até 80% e financiamento flexível, muitos proprietários não pagam nada antecipadamente e começam a economizar desde o primeiro dia.',
+    startSavingDescription: 'Com reembolsos de serviços públicos cobrindo até 75% e financiamento flexível, muitos proprietários não pagam nada antecipadamente e começam a economizar desde o primeiro dia.',
     calculateMySavings: 'Calcular Minhas Economias',
     scheduleNoCostAssessmentBtn: 'Agendar Avaliação Sem Custo',
     

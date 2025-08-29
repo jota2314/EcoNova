@@ -313,7 +313,7 @@ export default function Page() {
               </svg>
             </div>
             <h4 className="font-bold text-gray-900 mb-2">No Upfront Costs</h4>
-            <p className="text-gray-600">$0 down with utility rebates covering up to 80% of total improvement costs</p>
+            <p className="text-gray-600">$0 down with utility rebates covering up to 75% of total improvement costs</p>
           </div>
         </div>
       </Section>
@@ -322,11 +322,11 @@ export default function Page() {
         <div className="text-center bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-8 border border-emerald-200">
           <h4 className="text-2xl font-bold text-gray-900 mb-4">Schedule Your No-Cost Assessment Today</h4>
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            Call <strong>(617) 596-2476</strong> or use our online scheduling system to book your assessment.
+            Call <strong>(781) 732-4817</strong> or use our online scheduling system to book your assessment.
             We'll confirm your eligibility and answer any questions before your visit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <a href="tel:+16175962476" className="flex-1 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors">
+            <a href="tel:+17817324817" className="flex-1 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors">
               Call Now
             </a>
             <a href="#contact" className="flex-1 border-2 border-emerald-600 text-emerald-600 px-6 py-3 rounded-xl font-semibold hover:bg-emerald-600 hover:text-white transition-colors">

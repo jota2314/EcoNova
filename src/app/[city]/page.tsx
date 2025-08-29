@@ -87,7 +87,7 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
               <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.averageSavings}</div>
             </div>
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
-              <div className="text-3xl md:text-4xl font-black text-green-600 mb-2">80%</div>
+              <div className="text-3xl md:text-4xl font-black text-green-600 mb-2">75%</div>
               <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.utilityRebates}</div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
                 </svg>
               </span>
             </a>
-            <a href="tel:+16175962476" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (617) 596-2476">
+            <a href="tel:+17817324817" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (781) 732-4817">
               <span className="flex items-center justify-center gap-3">
                 <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
@@ -129,7 +129,7 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
               Professional <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Insulation</span> Services
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Certified installers serving {cityName} • Guaranteed results • Up to 80% utility rebates • No upfront costs
+              Certified installers serving {cityName} • Guaranteed results • Up to 75% utility rebates • No upfront costs
             </p>
           </div>
           
@@ -157,7 +157,7 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
                     Blown-in cellulose and fiberglass for maximum R-value in {cityOnly} homes
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Up to 80% rebate</span>
+                    <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Up to 75% rebate</span>
                     <div className="bg-emerald-50 rounded-full p-2 group-hover:bg-emerald-100 transition-colors duration-300">
                       <svg className="w-4 h-4 text-emerald-600 group-hover:translate-x-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -304,7 +304,7 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
                 </div>
                 <div className="text-left">
                   <div className="font-semibold mb-2">No Upfront Costs</div>
-                  <div className="text-green-100 text-sm">$0 down for {cityOnly} residents with utility rebates up to 80% of total cost</div>
+                  <div className="text-green-100 text-sm">$0 down for {cityOnly} residents with utility rebates up to 75% of total cost</div>
                 </div>
               </div>
             </div>
@@ -496,8 +496,8 @@ export default function CityPage({ params }: { params: Promise<{ city: string }>
             {t.getConsultation} {cityName} {t.today}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="tel:+16175962476" className="bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg">
-              Call (617) 596-2476
+            <a href="tel:+17817324817" className="bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg">
+              Call (781) 732-4817
             </a>
             <button className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
               Schedule {cityOnly} Consultation

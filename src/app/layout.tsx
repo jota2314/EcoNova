@@ -18,10 +18,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Professional Home Insulation & Energy Services | Econova | Save Up to 40% on Energy Bills",
-  description: "Get No Cost home energy assessment & professional insulation installation with up to 80% utility rebates. Certified installers, guaranteed 30% savings, $0 down payment. Serving homeowners nationwide with attic, wall, basement insulation, air sealing, solar & HVAC efficiency solutions.",
+  description: "Get No Cost home energy assessment & professional insulation installation with up to 75% utility rebates. Certified installers, guaranteed 30% savings, $0 down payment. Serving homeowners nationwide with attic, wall, basement insulation, air sealing, solar & HVAC efficiency solutions.",
   keywords: "home insulation, attic insulation, wall insulation, basement insulation, air sealing, energy audit, utility rebates, mass save, energy efficiency, home energy assessment, insulation contractors, blown-in insulation, spray foam, energy savings, HVAC efficiency, solar installation, energy storage",
   openGraph: {
-    title: "Professional Home Insulation Services | No Cost Assessment & Up to 80% Rebates",
+    title: "Professional Home Insulation Services | No Cost Assessment & Up to 75% Rebates",
     description: "Save up to 40% on energy bills with professional insulation. No Cost energy audit, certified installers, guaranteed results, $0 down payment options.",
     type: "website",
     siteName: "Econova",
@@ -80,7 +80,7 @@ export default function RootLayout({
                 "@type": "Organization",
                 name: "Econova",
                 url: "https://econovaenergysaving.com",
-                telephone: "(617) 596-2476",
+                telephone: "(781) 732-4817",
                 sameAs: [],
                 logo: "https://econovaenergysaving.com/econova-logo.png"
               })
@@ -98,7 +98,7 @@ export default function RootLayout({
                 name: "Econova",
                 description: "Professional home insulation and energy efficiency services",
                 url: "https://econovaenergysaving.com",
-                telephone: "(617) 596-2476",
+                telephone: "(781) 732-4817",
                 address: {
                   "@type": "PostalAddress",
                   streetAddress: "10 Industrial Way",

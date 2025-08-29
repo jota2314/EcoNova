@@ -43,7 +43,7 @@ export default function Home() {
               <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.averageSavings}</div>
             </div>
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50">
-              <div className="text-3xl md:text-4xl font-black text-green-600 mb-2">80%</div>
+              <div className="text-3xl md:text-4xl font-black text-green-600 mb-2">75%</div>
               <div className="text-sm font-semibold text-gray-700 uppercase tracking-wide">{t.utilityRebates}</div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function Home() {
                 </svg>
               </span>
             </a>
-            <a href="tel:+16175962476" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (617) 596-2476">
+            <a href="tel:+17817324817" className="group bg-white/90 backdrop-blur-sm text-gray-800 border-2 border-gray-200 hover:border-emerald-300 px-10 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:shadow-xl hover:shadow-gray-200/50 transform hover:-translate-y-1 hover:scale-[1.02]" aria-label="Call (781) 732-4817">
               <span className="flex items-center justify-center gap-3">
                 <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
@@ -853,7 +853,7 @@ export default function Home() {
                 Start Saving Immediately
               </h3>
               <p className="text-emerald-100 mb-8 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-                With utility rebates covering up to 80% and flexible financing, many homeowners pay nothing upfront and start saving from day one.
+                With utility rebates covering up to 75% and flexible financing, many homeowners pay nothing upfront and start saving from day one.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto">
                 <button className="flex-1 bg-white text-emerald-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg">
@@ -877,7 +877,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className="bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-700 transition-colors shadow-lg">
-              Call (617) 596-2476
+              Call (781) 732-4817
             </button>
             <button className="border-2 border-green-600 text-green-600 px-8 py-4 rounded-xl text-lg font-semibold hover:bg-green-600 hover:text-white transition-colors">
               Schedule Consultation

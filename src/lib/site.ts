@@ -3,7 +3,7 @@ import type { SiteConfig, ServiceLink, City } from '@/types';
 export const SITE: SiteConfig = {
   name: 'Econova',
   baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.econova.com',
-  phone: '(617) 596-2476',
+  phone: '(781) 732-4817',
 };
 
 export const SERVICE_LINKS: ServiceLink[] = [

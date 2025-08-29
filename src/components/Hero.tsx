@@ -16,8 +16,8 @@ export default function Hero() {
         <Link href="/energy-assessment/" className="rounded-lg px-5 py-3 bg-emerald-500 text-black font-medium">
           Schedule No-Cost Assessment
         </Link>
-        <a href="tel:+16175962476" className="rounded-lg px-5 py-3 border border-emerald-500/60">
-          Call (617) 596-2476
+        <a href="tel:+17817324817" className="rounded-lg px-5 py-3 border border-emerald-500/60">
+          Call (781) 732-4817
         </a>
       </div>
 
