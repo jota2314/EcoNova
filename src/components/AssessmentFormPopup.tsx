@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useAssessmentForm } from '@/contexts/AssessmentFormContext';
 import { useLanguage } from '@/contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 export default function AssessmentFormPopup() {
   const { isOpen, closeForm } = useAssessmentForm();
@@ -17,6 +18,7 @@ export default function AssessmentFormPopup() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -26,16 +28,73 @@ export default function AssessmentFormPopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
     try {
-      // Simulate form submission - you can replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // 1. Submit to our API endpoint
+      const apiResponse = await fetch('/api/submit-assessment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const apiData = await apiResponse.json();
+
+      if (!apiResponse.ok) {
+        throw new Error(apiData.error || 'Submission failed');
+      }
+
+      // 2. Send email using EmailJS
+      const emailData = {
+        to_email: process.env.NEXT_PUBLIC_RECIPIENT_EMAIL || 'abtinsulation@example.com',
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        zipCode: formData.zipCode,
+        homeAge: formData.homeAge || 'Not specified',
+        message: formData.message || 'No additional message',
+        submissionId: apiData.data?.submissionId,
+        timestamp: new Date().toLocaleString(),
+        subject: `🏠 New Assessment Request from ${formData.firstName} ${formData.lastName}`,
+        reply_to: formData.email,
+      };
+
+      // Send email if EmailJS is configured with real credentials
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
       
+      if (serviceId && templateId && publicKey && 
+          !serviceId.includes('xxxxxxx') && 
+          !templateId.includes('xxxxxxx') && 
+          !publicKey.includes('xxxxxxx')) {
+        try {
+          console.log('📧 Service ID:', serviceId);
+          console.log('📧 Template ID:', templateId);
+          console.log('📧 Public Key:', publicKey.substring(0, 5) + '...');
+          console.log('📧 Email Data:', JSON.stringify(emailData, null, 2));
+          await emailjs.send(serviceId, templateId, emailData, publicKey);
+          console.log('✅ Email sent successfully via EmailJS');
+        } catch (emailError) {
+          console.error('❌ EmailJS Error Status:', emailError.status);
+          console.error('❌ EmailJS Error Text:', emailError.text);
+          console.error('❌ Full EmailJS Error:', JSON.stringify(emailError, null, 2));
+          console.warn('⚠️ EmailJS failed, but form was saved:', emailError);
+          // Don't throw error - form submission should still succeed
+        }
+      } else {
+        console.log('ℹ️ EmailJS not configured - skipping email sending');
+      }
+
       // Track form submission for analytics
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'lead_submit', {
           form_id: 'no_cost_assessment_popup',
-          value: 1
+          value: 1,
+          customer_email: formData.email,
+          zip_code: formData.zipCode
         });
       }
       
@@ -45,6 +104,7 @@ export default function AssessmentFormPopup() {
       setTimeout(() => {
         closeForm();
         setIsSubmitted(false);
+        setError('');
         setFormData({
           firstName: '',
           lastName: '',
@@ -54,10 +114,11 @@ export default function AssessmentFormPopup() {
           homeAge: '',
           message: ''
         });
-      }, 2000);
+      }, 3000);
       
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('❌ Form submission error:', error);
+      setError(error.message || 'Something went wrong. Please try again or call (781) 732-4817 directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -237,6 +298,27 @@ export default function AssessmentFormPopup() {
                   placeholder="Tell us about specific areas of concern or preferred appointment times..."
                 />
               </div>
+
+              {/* Error Display */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <svg className="w-5 h-5 text-red-400 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-sm font-semibold text-red-800 mb-1">
+                        Submission Error
+                      </h3>
+                      <div className="text-sm text-red-700">
+                        {error}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Submit Button */}
               <button
