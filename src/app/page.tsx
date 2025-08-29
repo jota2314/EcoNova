@@ -81,13 +81,19 @@ export default function Home() {
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t.watchCertifiedProfessionals}</p>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Home Energy Assessment Process"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                <Image
+                  src="https://plus.unsplash.com/premium_photo-1717013912587-a9a86cdcafd3?q=80&w=1200&auto=format&fit=crop"
+                  alt="Energy Efficient House with Solar Panels - Professional Energy Assessment"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+                  className="object-cover"
+                  priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <h4 className="text-lg font-bold mb-2">Professional Energy-Efficient Home</h4>
+                  <p className="text-sm opacity-90">Modern home featuring solar panels, efficient insulation, and sustainable energy solutions</p>
+                </div>
               </div>
               <div className="mt-8 text-center">
                 <div className="inline-flex items-center space-x-4">
