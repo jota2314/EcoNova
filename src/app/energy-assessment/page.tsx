@@ -3,7 +3,7 @@ import { Section } from '@/components/Section';
 
 export const metadata = buildServiceMetadata({
   title: 'Mass Save® Home Energy Assessment',
-  description: 'Free home energy assessment in Massachusetts. Find ways to save energy and money with professional evaluation, instant energy-saving devices, and detailed efficiency reports.',
+  description: 'No cost home energy assessment in Massachusetts. Find ways to save energy and money with professional evaluation, instant energy-saving devices, and detailed efficiency reports.',
   slug: '/energy-assessment/',
 });
 

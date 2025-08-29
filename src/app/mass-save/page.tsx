@@ -256,7 +256,7 @@ export default function Page() {
           </div>
           <div className="mt-6 bg-white/70 rounded-lg p-4">
             <p className="text-green-700 font-medium">
-              <strong>100% Free:</strong> The comprehensive assessment is completely free of charge for all eligible Massachusetts residents.
+              <strong>100% No Cost:</strong> The comprehensive assessment is completely no cost for all eligible Massachusetts residents.
             </p>
           </div>
         </div>

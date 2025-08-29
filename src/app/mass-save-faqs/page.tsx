@@ -94,7 +94,7 @@ export default function Page() {
           <div className="border-l-4 border-blue-500 pl-6">
             <h4 className="font-bold text-gray-900 mb-2">How much does a home energy assessment cost?</h4>
             <p className="text-gray-700">
-              The comprehensive home energy assessment is completely free for eligible Massachusetts residents. The assessment 
+              The comprehensive home energy assessment is completely no cost for eligible Massachusetts residents. The assessment 
               is funded by energy efficiency charges that you already pay on your utility bills, so there's no additional 
               cost to schedule and receive this valuable service.
             </p>
@@ -112,7 +112,7 @@ export default function Page() {
           <div className="border-l-4 border-orange-500 pl-6">
             <h4 className="font-bold text-gray-900 mb-2">What do I receive during the assessment?</h4>
             <p className="text-gray-700 mb-2">
-              During your assessment, you'll receive free installation of immediate energy-saving products, including:
+              During your assessment, you'll receive no cost installation of immediate energy-saving products, including:
             </p>
             <ul className="text-gray-600 text-sm ml-4 space-y-1">
               <li>• Energy-efficient LED light bulbs</li>
